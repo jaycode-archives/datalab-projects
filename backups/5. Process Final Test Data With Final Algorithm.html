@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<!-- saved from url=(0177)https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>5. Process Final Test Data With Final Algorithm</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/static/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./5. Process Final Test Data With Final Algorithm_files/codemirror.css">
+  <link rel="stylesheet" href="./5. Process Final Test Data With Final Algorithm_files/style.min.css" type="text/css">
+  <link rel="stylesheet" href="./5. Process Final Test Data With Final Algorithm_files/custom.css" type="text/css">
+<script async="" src="./5. Process Final Test Data With Final Algorithm_files/analytics.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="services/contents" src="./5. Process Final Test Data With Final Algorithm_files/contents.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="custom/custom" src="./5. Process Final Test Data With Final Algorithm_files/custom.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="nbextensions/widgets/notebook/js/extension" src="./5. Process Final Test Data With Final Algorithm_files/extension.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="codemirror/mode/text/sql/text/sql" src="./5. Process Final Test Data With Final Algorithm_files/sql.js"></script></head>
+<body class="notebook_app command_mode" data-project="" data-base-url="/" data-ws-url="" data-notebook-name="5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb" data-notebook-path="Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb" data-feedback-id="717112" data-analytics-id="UA-54894152-3" data-analytics-path="0af5affa707bac2cc62ddcd55df208508dc518658ab9f0fcc2a665625bf0180d" data-analytics-title="notebook" data-project-num="803616047008" data-project-id="datalab-projects-1331" data-version-id="0.5.20160527" data-instance-id="fc414c2e-a65f-46e4-8fc0-3e935b86163c" data-instance-name="main" data-user-id="TeguhWPurwanto@gmail.com">
+  <div id="app">
+    <div id="appBar">
+      <span id="logo" class="nav navbar-brand pull-left">
+        <a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/tree"><img src="./5. Process Final Test Data With Final Algorithm_files/logo.png" alt="Google Cloud DataLab"></a>
+      </span>
+      <span id="save_widget" class="pull-left save_widget">
+        <button class="btn" title="Rename notebook"><span id="notebook_name" class="filename">5. Process Final Test Data With Final Algorithm</span></button>
+        <span class="autosave_status">(autosaved)</span>
+      </span>
+      <div class="btn-toolbar pull-right">
+        <div class="btn-group">
+          <button class="btn" data-toggle="dropdown" title="Help Links">
+            <span class="fa fa-question-circle"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a id="keyboardHelpLink" href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Keyboard Shortcuts</a></li>
+            <li><a id="markdownHelpLink" href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Markdown Syntax</a></li>
+            <li class="divider"></li>
+            <li><a href="https://cloud.google.com/bigquery/what-is-bigquery" target="_blank"><i class="fa fa-external-link pull-right menu-icon"></i><span>BigQuery&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+            <li><a href="https://cloud.google.com/storage/docs/overview" target="_blank"><i class="fa fa-external-link pull-right menu-icon"></i><span>Cloud Storage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></li>
+            <li class="divider"></li>
+            <li><a href="https://developers.google.com/chart/" target="_blank"><i class="fa fa-external-link pull-right menu-icon"></i><span>Google Charts</span></a></li>
+            <li><a href="http://matplotlib.org/contents.html" target="_blank"><i class="fa fa-external-link pull-right menu-icon"></i><span>Matplotlib</span></a></li>
+            <li><a href="http://pandas.pydata.org/pandas-docs/stable/" target="_blank"><i class="fa fa-external-link pull-right menu-icon"></i><span>Pandas</span></a></li>
+            <li><a href="http://scikit-learn.org/stable/" target="_blank"><i class="fa fa-external-link pull-right menu-icon"></i><span>SciKit-Learn</span></a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button class="btn" data-toggle="dropdown" title="User and Project Information">
+            <span class="fa fa-user"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#" id="userId">TeguhWPurwanto@gmail.com</a></li>
+            <li class="divider"></li>
+            <li><a href="https://console.developers.google.com/project/datalab-projects-1331" id="consoleLink" target="_blank">Developer Console</a></li>
+            <li><a href="https://console.developers.google.com/project/datalab-projects-1331/appengine/versions?moduleId=datalab" id="instancesLink" target="_blank">Developer Console: Cloud Datalab Instances</a></li>
+            <li><a href="https://console.developers.google.com/project/datalab-projects-1331/clouddev/develop/browse/default/datalab_main" id="repoLink" target="_blank">Developer Console: Git Repository</a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button id="feedbackButton" title="Provide feedback">
+            <span class="fa fa-comment"></span>
+          </button>
+        </div>
+        <div class="btn-group">
+          <button id="aboutButton" title="About Google Cloud Datalab">
+            <span class="fa fa-info-circle"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="appContent">
+      <div id="mainArea">
+        <div id="mainToolbar">
+          <div class="btn-toolbar pull-left">
+            <div class="btn-group">
+              <button type="button" class="btn" data-toggle="dropdown" title="Notebook commands">
+                <span class="fa fa-book"></span> Notebook <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li id="saveButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Save</a></li>
+                <li id="saveCopyButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Save copy</a></li>
+                <li id="renameButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Rename...</a></li>
+                <li class="divider"></li>
+                <li id="downloadButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Download</a></li>
+                <li class="divider"></li>
+                <li id="convertHTMLButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Convert to HTML</a></li>
+                <li id="convertPythonButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Convert to Python</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="btn-toolbar pull-right">
+            <div class="btn-group">
+              <button id="addCodeCellButton" type="button" class="btn" title="Append a new code cell">
+                <span class="fa fa-plus-square"></span> Add Code
+              </button>
+              <button id="addMarkdownCellButton" type="button" class="btn" title="Append a new markdown cell">
+                <span class="fa fa-plus-square"></span> Add Markdown
+              </button>
+              <button id="deleteCellButton" type="button" class="btn" title="Delete the selected cell">
+                <span class="fa fa-minus-square"></span> Delete
+              </button>
+              <button id="moveCellUpButton" type="button" class="btn" title="Move the selected cell up">
+                <span class="fa fa-chevron-up"></span> Move Up
+              </button>
+              <button id="moveCellDownButton" type="button" class="btn" title="Move the selected cell down">
+                <span class="fa fa-chevron-down"></span> Move Down
+              </button>
+            </div>
+            <div class="btn-group">
+              <button id="runButton" type="button" class="btn" title="Run the selected cell">
+                <span class="fa fa-play"></span> Run
+              </button>
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li id="runAllButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Run all Cells</a></li>
+                <li id="runToButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Run to this Cell</a></li>
+                <li id="runFromButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Run from this Cell</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button id="clearButton" type="button" class="btn" title="Clear outputs of the selected cell">
+                <span class="fa fa-minus-square-o"></span> Clear
+              </button>
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li id="clearAllButton"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#">Clear all Cells</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button id="resetSessionButton" type="button" class="btn" title="Restart the current notebook session">
+                <i id="kernel_indicator_icon" class="kernel_idle_icon" title="Kernel Idle"></i> Reset Session
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="mainContent" class="container">
+          <div id="ipython-main-app">
+            <div id="notebook_panel" style="position: relative">
+              <div id="notebook" tabindex="-1"><div class="container" id="notebook-container"><div class="cell code_cell rendered completed selected" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 885px; margin-bottom: -17px; border-right-width: 13px; min-height: 285px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>13</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">gcp</span>.<span class="cm-variable">bigquery</span> <span class="cm-keyword">as</span> <span class="cm-variable">bq</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">gcp</span>.<span class="cm-variable">storage</span> <span class="cm-keyword">as</span> <span class="cm-variable">storage</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">numpy</span> <span class="cm-keyword">as</span> <span class="cm-variable">np</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">try</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">   <span class="cm-keyword">import</span> <span class="cm-variable">cPickle</span> <span class="cm-keyword">as</span> <span class="cm-variable">pickle</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">except</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">   <span class="cm-keyword">import</span> <span class="cm-variable">pickle</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">EST_PICKLE_FILENAME</span> = <span class="cm-string">'baseline_final_estimator.pkl'</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment"># First feature HAS to be 'district_id' for MAPE calculation.</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">fields</span> = [<span class="cm-string">'gap'</span>, <span class="cm-string">'district_id'</span>, <span class="cm-string">'timeofday_slot'</span>, <span class="cm-string">'day_in_week'</span>, <span class="cm-string">'sum_price'</span>, <span class="cm-string">'traffic_tj_level1'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">            <span class="cm-string">'traffic_tj_level2'</span>, <span class="cm-string">'traffic_tj_level3'</span>, <span class="cm-string">'traffic_tj_level4'</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">features</span> = <span class="cm-variable">fields</span>[<span class="cm-number">1</span>:]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 285px;"></div><div class="CodeMirror-gutters" style="height: 298px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output" style="display: block;"></div><div class="output" style=""></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell text_cell unselected rendered" tabindex="2"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 6px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 33px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-header cm-header-1"># Prepare Final Dataset</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 33px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"><h1 id="Prepare-Final-Dataset">Prepare Final Dataset<a class="anchor-link" href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#Prepare-Final-Dataset">¶</a></h1>
+</div></div></div><div class="cell code_cell unselected rendered completed" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 858px; margin-bottom: -17px; border-right-width: 13px; min-height: 348px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>16</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-magic">%%sql --module q_all_f</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> *</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">FROM</span> [<span class="cm-atom">datalab-projects-1331:xjk_algo_comp_test.future_gaps_processed</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">WHERE</span> <span class="cm-variable">gap</span> &gt; <span class="cm-number">0</span> <span class="cm-keyword">AND</span> <span class="cm-variable">timeslot</span> <span class="cm-keyword">IN</span> (<span class="cm-string">'2016-01-22-46'</span>,<span class="cm-string">'2016-01-22-58'</span>,<span class="cm-string">'2016-01-22-70'</span>,<span class="cm-string">'2016-01-22-82'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-22-94'</span>,<span class="cm-string">'2016-01-22-106'</span>,<span class="cm-string">'2016-01-22-118'</span>,<span class="cm-string">'2016-01-22-130'</span>,<span class="cm-string">'2016-01-22-142'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-24-58'</span>,<span class="cm-string">'2016-01-24-70'</span>,<span class="cm-string">'2016-01-24-82'</span>,<span class="cm-string">'2016-01-24-94'</span>,<span class="cm-string">'2016-01-24-106'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-24-118'</span>,<span class="cm-string">'2016-01-24-130'</span>,<span class="cm-string">'2016-01-24-142'</span>,<span class="cm-string">'2016-01-26-46'</span>,<span class="cm-string">'2016-01-26-58'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-26-70'</span>,<span class="cm-string">'2016-01-26-82'</span>,<span class="cm-string">'2016-01-26-94'</span>,<span class="cm-string">'2016-01-26-106'</span>,<span class="cm-string">'2016-01-26-118'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-26-130'</span>,<span class="cm-string">'2016-01-26-142'</span>,<span class="cm-string">'2016-01-28-58'</span>,<span class="cm-string">'2016-01-28-70'</span>,<span class="cm-string">'2016-01-28-82'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-28-94'</span>,<span class="cm-string">'2016-01-28-106'</span>,<span class="cm-string">'2016-01-28-118'</span>,<span class="cm-string">'2016-01-28-130'</span>,<span class="cm-string">'2016-01-28-142'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-30-46'</span>,<span class="cm-string">'2016-01-30-58'</span>,<span class="cm-string">'2016-01-30-70'</span>,<span class="cm-string">'2016-01-30-82'</span>,<span class="cm-string">'2016-01-30-94'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-30-106'</span>,<span class="cm-string">'2016-01-30-118'</span>,<span class="cm-string">'2016-01-30-130'</span>,<span class="cm-string">'2016-01-30-142'</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">ORDER</span> <span class="cm-keyword">BY</span> <span class="cm-variable">timeslot</span>, <span class="cm-variable">district_id</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">15</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">16</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment"># Final dataset - Used in final submission.</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 348px;"></div><div class="CodeMirror-gutters" style="height: 361px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output" style="display: none;"></div><div class="output" style="display: none;"></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell code_cell unselected rendered completed" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 525px; margin-bottom: -17px; border-right-width: 13px; min-height: 306px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>14</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">query_f</span> = <span class="cm-variable">bq</span>.<span class="cm-variable">Query</span>(<span class="cm-variable">q_all_f</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">tableresult_f</span> = <span class="cm-variable">query_f</span>.<span class="cm-variable">results</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">all_data_f</span> = <span class="cm-variable">np</span>.<span class="cm-variable">zeros</span>((<span class="cm-variable">tableresult_f</span>.<span class="cm-variable">length</span>, <span class="cm-builtin">len</span>(<span class="cm-variable">fields</span>)))</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">print</span> <span class="cm-string">'there are {} rows'</span>.<span class="cm-builtin">format</span>(<span class="cm-variable">tableresult_f</span>.<span class="cm-variable">length</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">rcounter</span>, <span class="cm-variable">row</span> <span class="cm-keyword">in</span> <span class="cm-builtin">enumerate</span>(<span class="cm-variable">tableresult_f</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">  <span class="cm-keyword">for</span> <span class="cm-variable">fcounter</span>, <span class="cm-variable">field</span> <span class="cm-keyword">in</span> <span class="cm-builtin">enumerate</span>(<span class="cm-variable">fields</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-variable">all_data_f</span>[<span class="cm-variable">rcounter</span>, <span class="cm-variable">fcounter</span>] = <span class="cm-variable">row</span>[<span class="cm-variable">field</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">  <span class="cm-keyword">if</span> <span class="cm-variable">rcounter</span> <span class="cm-operator">%</span> <span class="cm-number">1000</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-keyword">print</span> <span class="cm-string">'processed {} rows'</span>.<span class="cm-builtin">format</span>(<span class="cm-variable">rcounter</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">all_data_f</span>[<span class="cm-variable">np</span>.<span class="cm-variable">isnan</span>(<span class="cm-variable">all_data_f</span>)] = <span class="cm-number">0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">data_final</span> = <span class="cm-variable">all_data_f</span>[:,<span class="cm-number">1</span>:]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">targets_final</span> = <span class="cm-variable">all_data_f</span>[:,<span class="cm-number">0</span>]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 306px;"></div><div class="CodeMirror-gutters" style="height: 319px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output" style="display: block;"></div><div class="output" style=""><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>there are 1802 rows
+processed 0 rows
+processed 1000 rows
+</pre></div></div></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell text_cell unselected rendered" tabindex="2"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 6px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; padding-right: 0px; padding-bottom: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 33px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-header cm-header-1"># Run Prediction and Export CSV</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 33px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></div><div class="text_cell_render rendered_html" tabindex="-1"><h1 id="Run-Prediction-and-Export-CSV">Run Prediction and Export CSV<a class="anchor-link" href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#Run-Prediction-and-Export-CSV">¶</a></h1>
+</div></div></div><div class="cell code_cell unselected rendered" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 507px; margin-bottom: -17px; border-right-width: 13px; min-height: 33px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">final_est</span> = <span class="cm-variable">pickle</span>.<span class="cm-variable">load</span>(<span class="cm-builtin">open</span>(<span class="cm-variable">EST_PICKLE_FILENAME</span>, <span class="cm-string">"r"</span>) )</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 33px;"></div><div class="CodeMirror-gutters" style="height: 46px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output" style="display: none;"></div><div class="output" style="display: none;"></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell code_cell unselected rendered completed" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 876px; margin-bottom: -17px; border-right-width: 13px; min-height: 75px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-magic">%%sql --module q_districts</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">SELECT</span> <span class="cm-variable">district_id</span> <span class="cm-keyword">FROM</span> [<span class="cm-atom">datalab-projects-1331:xjk_algo_comp_test.districts</span>] <span class="cm-keyword">ORDER</span> <span class="cm-keyword">BY</span> <span class="cm-variable">district_id</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 75px;"></div><div class="CodeMirror-gutters" style="height: 88px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output" style="display: none;"></div><div class="output" style="display: none;"></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell code_cell unselected rendered completed" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 552px; margin-bottom: -17px; border-right-width: 13px; min-height: 75px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">query_districts</span> = <span class="cm-variable">bq</span>.<span class="cm-variable">Query</span>(<span class="cm-variable">q_districts</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">tableresult_districts</span> = <span class="cm-variable">query_districts</span>.<span class="cm-variable">results</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">districts</span> = [<span class="cm-variable">d</span>[<span class="cm-string">'district_id'</span>] <span class="cm-keyword">for</span> <span class="cm-variable">d</span> <span class="cm-keyword">in</span> <span class="cm-variable">tableresult_districts</span>]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 75px;"></div><div class="CodeMirror-gutters" style="height: 88px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output" style="display: none;"></div><div class="output" style="display: none;"></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell code_cell unselected rendered completed" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 795px; margin-bottom: -17px; border-right-width: 13px; min-height: 873px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>41</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">final_predictions</span> = <span class="cm-variable">final_est</span>.<span class="cm-variable">predict</span>(<span class="cm-variable">data_final</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">slots</span> = [<span class="cm-string">'2016-01-22-46'</span>,<span class="cm-string">'2016-01-22-58'</span>,<span class="cm-string">'2016-01-22-70'</span>,<span class="cm-string">'2016-01-22-82'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-22-94'</span>,<span class="cm-string">'2016-01-22-106'</span>,<span class="cm-string">'2016-01-22-118'</span>,<span class="cm-string">'2016-01-22-130'</span>,<span class="cm-string">'2016-01-22-142'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-24-58'</span>,<span class="cm-string">'2016-01-24-70'</span>,<span class="cm-string">'2016-01-24-82'</span>,<span class="cm-string">'2016-01-24-94'</span>,<span class="cm-string">'2016-01-24-106'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-24-118'</span>,<span class="cm-string">'2016-01-24-130'</span>,<span class="cm-string">'2016-01-24-142'</span>,<span class="cm-string">'2016-01-26-46'</span>,<span class="cm-string">'2016-01-26-58'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-26-70'</span>,<span class="cm-string">'2016-01-26-82'</span>,<span class="cm-string">'2016-01-26-94'</span>,<span class="cm-string">'2016-01-26-106'</span>,<span class="cm-string">'2016-01-26-118'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-26-130'</span>,<span class="cm-string">'2016-01-26-142'</span>,<span class="cm-string">'2016-01-28-58'</span>,<span class="cm-string">'2016-01-28-70'</span>,<span class="cm-string">'2016-01-28-82'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-28-94'</span>,<span class="cm-string">'2016-01-28-106'</span>,<span class="cm-string">'2016-01-28-118'</span>,<span class="cm-string">'2016-01-28-130'</span>,<span class="cm-string">'2016-01-28-142'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-30-46'</span>,<span class="cm-string">'2016-01-30-58'</span>,<span class="cm-string">'2016-01-30-70'</span>,<span class="cm-string">'2016-01-30-82'</span>,<span class="cm-string">'2016-01-30-94'</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'2016-01-30-106'</span>,<span class="cm-string">'2016-01-30-118'</span>,<span class="cm-string">'2016-01-30-130'</span>,<span class="cm-string">'2016-01-30-142'</span>]</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">result_dicts</span> = []</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">print</span> <span class="cm-string">"Preparing results..."</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">15</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">slot</span> <span class="cm-keyword">in</span> <span class="cm-variable">slots</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">16</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">  <span class="cm-keyword">for</span> <span class="cm-variable">district</span> <span class="cm-keyword">in</span> <span class="cm-variable">districts</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">17</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment">#     pred = 0.0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">18</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment">#     try:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">19</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment">#       id = (index for (index, item) in enumerate(tableresult_f) if </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">20</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment">#             item['timeslot'] == slot and item['district_id'] == id).next()</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">21</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment">#       pred = final_predictions[id]</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">22</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment">#     except:</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">23</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-comment">#       pass</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">24</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-variable">result_dicts</span>.<span class="cm-variable">append</span>({<span class="cm-string">'key'</span>: <span class="cm-string">'{}:{}'</span>.<span class="cm-builtin">format</span>(<span class="cm-variable">district</span>, <span class="cm-variable">slot</span>), <span class="cm-string">'value'</span>: <span class="cm-error">\</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">25</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">      <span class="cm-string">'{},{},{}'</span>.<span class="cm-builtin">format</span>(<span class="cm-variable">district</span>, <span class="cm-variable">slot</span>,<span class="cm-number">0.0</span>)})</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">26</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">27</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">print</span> <span class="cm-string">'Replacing predictions...'</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">28</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">for</span> (<span class="cm-variable">index</span>, <span class="cm-variable">item</span>) <span class="cm-keyword">in</span> <span class="cm-builtin">enumerate</span>(<span class="cm-variable">tableresult_f</span>):</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">29</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">  <span class="cm-builtin">id</span> = (<span class="cm-variable">index</span> <span class="cm-keyword">for</span> (<span class="cm-variable">r_id</span>, <span class="cm-variable">r_item</span>) <span class="cm-keyword">in</span> <span class="cm-builtin">enumerate</span>(<span class="cm-variable">result_dicts</span>) <span class="cm-keyword">if</span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">30</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-variable">r_item</span>[<span class="cm-string">'key'</span>] <span class="cm-operator">==</span> <span class="cm-string">'{}:{}'</span>.<span class="cm-builtin">format</span>(<span class="cm-variable">item</span>[<span class="cm-string">'district_id'</span>], <span class="cm-variable">item</span>[<span class="cm-string">'timeslot'</span>])).<span class="cm-builtin">next</span>()</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">31</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">  <span class="cm-variable">result_dicts</span>[<span class="cm-builtin">id</span>][<span class="cm-string">'value'</span>] = <span class="cm-error">\</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">32</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-string">'{},{},{}'</span>.<span class="cm-builtin">format</span>(<span class="cm-variable">item</span>[<span class="cm-string">'district_id'</span>], <span class="cm-variable">item</span>[<span class="cm-string">'timeslot'</span>],<span class="cm-variable">final_predictions</span>[<span class="cm-variable">index</span>])</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">33</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">  <span class="cm-keyword">if</span> <span class="cm-variable">index</span> <span class="cm-operator">%</span> <span class="cm-number">200</span> <span class="cm-operator">==</span> <span class="cm-number">0</span>:</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">34</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    <span class="cm-keyword">print</span> <span class="cm-string">'Done {}/{}...'</span>.<span class="cm-builtin">format</span>(<span class="cm-variable">index</span>, <span class="cm-variable">tableresult_f</span>.<span class="cm-variable">length</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">35</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">    </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">36</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">result</span> = <span class="cm-string">'\n'</span>.<span class="cm-variable">join</span>(<span class="cm-builtin">map</span>(<span class="cm-keyword">lambda</span> <span class="cm-variable">d</span>: <span class="cm-variable">d</span>[<span class="cm-string">'value'</span>], <span class="cm-variable">result_dicts</span>))</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">37</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">bucketname</span> = <span class="cm-string">'datalab-projects-1331-datalab'</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">38</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">itempath</span> = <span class="cm-string">'result/final_result.csv'</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">39</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">print</span> <span class="cm-string">'Done, now writing to gs://{}/{}'</span>.<span class="cm-builtin">format</span>(<span class="cm-variable">bucketname</span>, <span class="cm-variable">itempath</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">40</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">item</span> = <span class="cm-variable">storage</span>.<span class="cm-variable">Item</span>(<span class="cm-variable">bucketname</span>, <span class="cm-variable">itempath</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">41</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-variable">item</span>.<span class="cm-variable">write_to</span>(<span class="cm-variable">result</span>, <span class="cm-string">'text/plain'</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 873px;"></div><div class="CodeMirror-gutters" style="height: 886px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output" style="display: block;"></div><div class="output" style=""><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>Preparing results...
+Replacing predictions...
+Done 0/1802...
+Done 200/1802...
+Done 400/1802...
+Done 600/1802...
+Done 800/1802...
+Done 1000/1802...
+Done 1200/1802...
+Done 1400/1802...
+Done 1600/1802...
+Done 1800/1802...
+Done, now writing to gs://datalab-projects-1331-datalab/result/final_result.csv
+</pre></div></div></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell code_cell unselected rendered completed" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 120px; margin-bottom: -17px; border-right-width: 13px; min-height: 33px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span class="cm-keyword">print</span>(<span class="cm-variable">result</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 33px;"></div><div class="CodeMirror-gutters" style="height: 46px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to unscroll output; double click to hide" style="display: block;"></div><div class="output output_scroll" style=""><div class="output_area"><div class="prompt"></div><div class="output_subarea output_text output_stream output_stdout"><pre>1,2016-01-22-106,14.0
+2,2016-01-22-106,1.0
+3,2016-01-22-106,3.0
+4,2016-01-22-106,11.0
+7,2016-01-22-106,316.0
+8,2016-01-22-106,676.0
+9,2016-01-22-106,1.0
+11,2016-01-22-106,1.0
+12,2016-01-22-106,14.0
+13,2016-01-22-106,2.0
+14,2016-01-22-106,5.0
+16,2016-01-22-106,2.0
+17,2016-01-22-106,1.0
+18,2016-01-22-106,3.0
+19,2016-01-22-106,7.0
+20,2016-01-22-106,5.0
+21,2016-01-22-106,13.0
+22,2016-01-22-106,27.0
+23,2016-01-22-106,434.0
+24,2016-01-22-106,9.0
+25,2016-01-22-106,1.0
+26,2016-01-22-106,92.0
+27,2016-01-22-106,8.0
+28,2016-01-22-106,149.0
+29,2016-01-22-106,19.0
+31,2016-01-22-106,4.0
+32,2016-01-22-106,3.0
+33,2016-01-22-106,2.0
+35,2016-01-22-106,18.0
+36,2016-01-22-106,3.0
+37,2016-01-22-106,434.0
+38,2016-01-22-106,3.0
+41,2016-01-22-106,1.0
+42,2016-01-22-106,4.0
+43,2016-01-22-106,1.0
+44,2016-01-22-106,1.0
+46,2016-01-22-106,149.0
+47,2016-01-22-106,2.0
+48,2016-01-22-106,434.0
+51,2016-01-22-106,910.0
+53,2016-01-22-106,9.0
+57,2016-01-22-106,1.0
+62,2016-01-22-106,1.0
+66,2016-01-22-106,1.0
+1,2016-01-22-118,4.0
+2,2016-01-22-118,1.0
+3,2016-01-22-118,3.0
+4,2016-01-22-118,26.0
+7,2016-01-22-118,116.0
+8,2016-01-22-118,160.0
+9,2016-01-22-118,1.0
+11,2016-01-22-118,1.0
+12,2016-01-22-118,4.0
+13,2016-01-22-118,1.0
+14,2016-01-22-118,10.0
+15,2016-01-22-118,1.0
+16,2016-01-22-118,1.0
+19,2016-01-22-118,2.0
+20,2016-01-22-118,28.0
+21,2016-01-22-118,4.0
+22,2016-01-22-118,19.0
+23,2016-01-22-118,126.0
+25,2016-01-22-118,1.0
+26,2016-01-22-118,5.0
+27,2016-01-22-118,8.0
+28,2016-01-22-118,27.0
+31,2016-01-22-118,4.0
+33,2016-01-22-118,1.0
+35,2016-01-22-118,28.0
+36,2016-01-22-118,2.0
+37,2016-01-22-118,10.0
+42,2016-01-22-118,2.0
+43,2016-01-22-118,2.0
+46,2016-01-22-118,4.0
+48,2016-01-22-118,33.0
+51,2016-01-22-118,436.0
+53,2016-01-22-118,8.0
+59,2016-01-22-118,3.0
+60,2016-01-22-118,1.0
+62,2016-01-22-118,1.0
+66,2016-01-22-118,1.0
+1,2016-01-22-130,6.0
+2,2016-01-22-130,2.0
+4,2016-01-22-130,6.0
+7,2016-01-22-130,42.0
+8,2016-01-22-130,45.0
+11,2016-01-22-130,1.0
+12,2016-01-22-130,3.0
+13,2016-01-22-130,1.0
+14,2016-01-22-130,2.0
+19,2016-01-22-130,2.0
+20,2016-01-22-130,3.0
+21,2016-01-22-130,6.0
+22,2016-01-22-130,19.0
+23,2016-01-22-130,33.0
+24,2016-01-22-130,4.0
+25,2016-01-22-130,1.0
+26,2016-01-22-130,1.0
+27,2016-01-22-130,8.0
+28,2016-01-22-130,134.0
+29,2016-01-22-130,3.0
+30,2016-01-22-130,1.0
+35,2016-01-22-130,2.0
+37,2016-01-22-130,7.0
+38,2016-01-22-130,1.0
+39,2016-01-22-130,1.0
+42,2016-01-22-130,2.0
+45,2016-01-22-130,2.0
+46,2016-01-22-130,7.0
+47,2016-01-22-130,1.0
+48,2016-01-22-130,111.0
+49,2016-01-22-130,1.0
+51,2016-01-22-130,386.0
+53,2016-01-22-130,2.0
+56,2016-01-22-130,4.0
+58,2016-01-22-130,1.0
+59,2016-01-22-130,1.0
+60,2016-01-22-130,1.0
+62,2016-01-22-130,1.0
+64,2016-01-22-130,4.0
+1,2016-01-22-142,3.0
+2,2016-01-22-142,3.0
+4,2016-01-22-142,3.0
+7,2016-01-22-142,4.0
+8,2016-01-22-142,15.0
+9,2016-01-22-142,3.0
+10,2016-01-22-142,3.0
+12,2016-01-22-142,3.0
+13,2016-01-22-142,1.0
+14,2016-01-22-142,2.0
+16,2016-01-22-142,1.0
+17,2016-01-22-142,1.0
+18,2016-01-22-142,2.0
+19,2016-01-22-142,1.0
+20,2016-01-22-142,1.0
+21,2016-01-22-142,1.0
+22,2016-01-22-142,3.0
+23,2016-01-22-142,17.0
+24,2016-01-22-142,2.0
+25,2016-01-22-142,1.0
+26,2016-01-22-142,3.0
+27,2016-01-22-142,6.0
+28,2016-01-22-142,2.0
+30,2016-01-22-142,1.0
+31,2016-01-22-142,4.0
+32,2016-01-22-142,1.0
+33,2016-01-22-142,1.0
+34,2016-01-22-142,1.0
+35,2016-01-22-142,2.0
+36,2016-01-22-142,1.0
+37,2016-01-22-142,3.0
+39,2016-01-22-142,2.0
+40,2016-01-22-142,1.0
+42,2016-01-22-142,11.0
+46,2016-01-22-142,2.0
+47,2016-01-22-142,1.0
+48,2016-01-22-142,9.0
+51,2016-01-22-142,29.0
+54,2016-01-22-142,1.0
+56,2016-01-22-142,3.0
+58,2016-01-22-142,1.0
+59,2016-01-22-142,1.0
+62,2016-01-22-142,1.0
+66,2016-01-22-142,1.0
+1,2016-01-22-46,13.0
+2,2016-01-22-46,1.0
+4,2016-01-22-46,13.0
+6,2016-01-22-46,4.0
+7,2016-01-22-46,13.0
+8,2016-01-22-46,676.0
+9,2016-01-22-46,6.0
+10,2016-01-22-46,1.0
+11,2016-01-22-46,5.0
+12,2016-01-22-46,8.0
+13,2016-01-22-46,2.0
+14,2016-01-22-46,14.0
+16,2016-01-22-46,1.0
+19,2016-01-22-46,2.0
+20,2016-01-22-46,5.0
+21,2016-01-22-46,4.0
+22,2016-01-22-46,3.0
+23,2016-01-22-46,310.0
+24,2016-01-22-46,126.0
+27,2016-01-22-46,2.0
+28,2016-01-22-46,14.0
+29,2016-01-22-46,5.0
+31,2016-01-22-46,1.0
+33,2016-01-22-46,3.0
+36,2016-01-22-46,1.0
+37,2016-01-22-46,149.0
+38,2016-01-22-46,8.0
+39,2016-01-22-46,1.0
+40,2016-01-22-46,1.0
+41,2016-01-22-46,3.0
+42,2016-01-22-46,49.0
+46,2016-01-22-46,149.0
+48,2016-01-22-46,149.0
+51,2016-01-22-46,144.0
+59,2016-01-22-46,1.0
+62,2016-01-22-46,1.0
+63,2016-01-22-46,1.0
+66,2016-01-22-46,3.0
+1,2016-01-22-58,49.0
+3,2016-01-22-58,2.0
+4,2016-01-22-58,5.0
+5,2016-01-22-58,3.0
+6,2016-01-22-58,4.0
+7,2016-01-22-58,49.0
+8,2016-01-22-58,676.0
+9,2016-01-22-58,3.0
+10,2016-01-22-58,2.0
+11,2016-01-22-58,7.0
+12,2016-01-22-58,50.0
+13,2016-01-22-58,2.0
+14,2016-01-22-58,92.0
+16,2016-01-22-58,1.0
+17,2016-01-22-58,3.0
+18,2016-01-22-58,2.0
+20,2016-01-22-58,4.0
+21,2016-01-22-58,20.0
+22,2016-01-22-58,10.0
+23,2016-01-22-58,434.0
+24,2016-01-22-58,126.0
+25,2016-01-22-58,1.0
+26,2016-01-22-58,14.0
+27,2016-01-22-58,5.0
+28,2016-01-22-58,149.0
+29,2016-01-22-58,7.0
+30,2016-01-22-58,3.0
+31,2016-01-22-58,2.0
+35,2016-01-22-58,8.0
+36,2016-01-22-58,6.0
+37,2016-01-22-58,434.0
+38,2016-01-22-58,1.0
+39,2016-01-22-58,5.0
+40,2016-01-22-58,1.0
+41,2016-01-22-58,1.0
+42,2016-01-22-58,5.0
+44,2016-01-22-58,3.0
+46,2016-01-22-58,149.0
+47,2016-01-22-58,1.0
+48,2016-01-22-58,149.0
+49,2016-01-22-58,1.0
+51,2016-01-22-58,707.0
+52,2016-01-22-58,1.0
+53,2016-01-22-58,2.0
+54,2016-01-22-58,2.0
+55,2016-01-22-58,3.0
+56,2016-01-22-58,1.0
+57,2016-01-22-58,1.0
+58,2016-01-22-58,1.0
+61,2016-01-22-58,1.0
+65,2016-01-22-58,2.0
+1,2016-01-22-70,7.0
+3,2016-01-22-70,3.0
+4,2016-01-22-70,3.0
+5,2016-01-22-70,3.0
+6,2016-01-22-70,4.0
+7,2016-01-22-70,9.0
+8,2016-01-22-70,111.0
+9,2016-01-22-70,6.0
+10,2016-01-22-70,3.0
+11,2016-01-22-70,2.0
+12,2016-01-22-70,7.0
+16,2016-01-22-70,3.0
+18,2016-01-22-70,3.0
+19,2016-01-22-70,1.0
+20,2016-01-22-70,7.0
+21,2016-01-22-70,7.0
+22,2016-01-22-70,6.0
+23,2016-01-22-70,126.0
+24,2016-01-22-70,5.0
+25,2016-01-22-70,6.0
+26,2016-01-22-70,9.0
+27,2016-01-22-70,8.0
+28,2016-01-22-70,6.0
+29,2016-01-22-70,2.0
+30,2016-01-22-70,3.0
+31,2016-01-22-70,3.0
+32,2016-01-22-70,3.0
+33,2016-01-22-70,3.0
+34,2016-01-22-70,1.0
+36,2016-01-22-70,1.0
+37,2016-01-22-70,14.0
+38,2016-01-22-70,3.0
+40,2016-01-22-70,3.0
+41,2016-01-22-70,3.0
+42,2016-01-22-70,5.0
+43,2016-01-22-70,3.0
+45,2016-01-22-70,3.0
+46,2016-01-22-70,49.0
+47,2016-01-22-70,2.0
+48,2016-01-22-70,149.0
+49,2016-01-22-70,1.0
+51,2016-01-22-70,707.0
+53,2016-01-22-70,3.0
+55,2016-01-22-70,3.0
+56,2016-01-22-70,1.0
+57,2016-01-22-70,1.0
+58,2016-01-22-70,1.0
+60,2016-01-22-70,3.0
+62,2016-01-22-70,1.0
+64,2016-01-22-70,1.0
+1,2016-01-22-82,13.0
+2,2016-01-22-82,2.0
+3,2016-01-22-82,3.0
+4,2016-01-22-82,4.0
+6,2016-01-22-82,4.0
+7,2016-01-22-82,116.0
+8,2016-01-22-82,234.0
+9,2016-01-22-82,4.0
+10,2016-01-22-82,3.0
+11,2016-01-22-82,7.0
+12,2016-01-22-82,50.0
+13,2016-01-22-82,3.0
+14,2016-01-22-82,50.0
+16,2016-01-22-82,3.0
+18,2016-01-22-82,3.0
+20,2016-01-22-82,4.0
+21,2016-01-22-82,2.0
+22,2016-01-22-82,11.0
+23,2016-01-22-82,126.0
+24,2016-01-22-82,42.0
+26,2016-01-22-82,6.0
+27,2016-01-22-82,6.0
+28,2016-01-22-82,92.0
+29,2016-01-22-82,6.0
+33,2016-01-22-82,3.0
+35,2016-01-22-82,9.0
+36,2016-01-22-82,3.0
+37,2016-01-22-82,5.0
+38,2016-01-22-82,3.0
+40,2016-01-22-82,1.0
+42,2016-01-22-82,4.0
+45,2016-01-22-82,2.0
+46,2016-01-22-82,49.0
+47,2016-01-22-82,3.0
+48,2016-01-22-82,149.0
+51,2016-01-22-82,707.0
+53,2016-01-22-82,1.0
+58,2016-01-22-82,1.0
+60,2016-01-22-82,1.0
+61,2016-01-22-82,1.0
+65,2016-01-22-82,1.0
+1,2016-01-22-94,13.0
+2,2016-01-22-94,2.0
+3,2016-01-22-94,3.0
+4,2016-01-22-94,4.0
+6,2016-01-22-94,1.0
+7,2016-01-22-94,160.0
+8,2016-01-22-94,234.0
+9,2016-01-22-94,3.0
+10,2016-01-22-94,3.0
+11,2016-01-22-94,2.0
+12,2016-01-22-94,23.0
+14,2016-01-22-94,14.0
+16,2016-01-22-94,2.0
+18,2016-01-22-94,1.0
+19,2016-01-22-94,2.0
+20,2016-01-22-94,20.0
+21,2016-01-22-94,2.0
+22,2016-01-22-94,2.0
+23,2016-01-22-94,126.0
+24,2016-01-22-94,4.0
+25,2016-01-22-94,3.0
+26,2016-01-22-94,1.0
+27,2016-01-22-94,2.0
+28,2016-01-22-94,92.0
+29,2016-01-22-94,3.0
+31,2016-01-22-94,3.0
+34,2016-01-22-94,3.0
+35,2016-01-22-94,1.0
+36,2016-01-22-94,1.0
+37,2016-01-22-94,5.0
+38,2016-01-22-94,1.0
+39,2016-01-22-94,8.0
+41,2016-01-22-94,1.0
+42,2016-01-22-94,4.0
+43,2016-01-22-94,3.0
+44,2016-01-22-94,3.0
+45,2016-01-22-94,2.0
+46,2016-01-22-94,6.0
+47,2016-01-22-94,2.0
+48,2016-01-22-94,310.0
+49,2016-01-22-94,1.0
+51,2016-01-22-94,707.0
+57,2016-01-22-94,1.0
+58,2016-01-22-94,1.0
+1,2016-01-24-106,12.0
+2,2016-01-24-106,1.0
+3,2016-01-24-106,4.0
+4,2016-01-24-106,11.0
+6,2016-01-24-106,1.0
+7,2016-01-24-106,116.0
+8,2016-01-24-106,111.0
+9,2016-01-24-106,1.0
+10,2016-01-24-106,2.0
+12,2016-01-24-106,14.0
+13,2016-01-24-106,2.0
+14,2016-01-24-106,7.0
+16,2016-01-24-106,2.0
+19,2016-01-24-106,6.0
+20,2016-01-24-106,7.0
+21,2016-01-24-106,4.0
+22,2016-01-24-106,38.0
+23,2016-01-24-106,160.0
+24,2016-01-24-106,9.0
+25,2016-01-24-106,3.0
+27,2016-01-24-106,8.0
+28,2016-01-24-106,149.0
+29,2016-01-24-106,19.0
+31,2016-01-24-106,5.0
+32,2016-01-24-106,3.0
+37,2016-01-24-106,12.0
+39,2016-01-24-106,5.0
+40,2016-01-24-106,1.0
+42,2016-01-24-106,11.0
+44,2016-01-24-106,1.0
+46,2016-01-24-106,92.0
+47,2016-01-24-106,2.0
+48,2016-01-24-106,434.0
+51,2016-01-24-106,707.0
+54,2016-01-24-106,2.0
+62,2016-01-24-106,2.0
+1,2016-01-24-118,6.0
+4,2016-01-24-118,26.0
+7,2016-01-24-118,4.0
+8,2016-01-24-118,116.0
+9,2016-01-24-118,2.0
+10,2016-01-24-118,1.0
+12,2016-01-24-118,21.0
+14,2016-01-24-118,4.0
+16,2016-01-24-118,2.0
+20,2016-01-24-118,5.0
+21,2016-01-24-118,8.0
+22,2016-01-24-118,22.0
+23,2016-01-24-118,126.0
+24,2016-01-24-118,3.0
+26,2016-01-24-118,3.0
+27,2016-01-24-118,8.0
+28,2016-01-24-118,10.0
+29,2016-01-24-118,3.0
+31,2016-01-24-118,3.0
+32,2016-01-24-118,1.0
+36,2016-01-24-118,2.0
+37,2016-01-24-118,7.0
+38,2016-01-24-118,3.0
+40,2016-01-24-118,1.0
+42,2016-01-24-118,1.0
+46,2016-01-24-118,2.0
+47,2016-01-24-118,1.0
+48,2016-01-24-118,33.0
+49,2016-01-24-118,1.0
+51,2016-01-24-118,74.0
+52,2016-01-24-118,1.0
+53,2016-01-24-118,1.0
+54,2016-01-24-118,2.0
+56,2016-01-24-118,1.0
+58,2016-01-24-118,1.0
+63,2016-01-24-118,1.0
+64,2016-01-24-118,6.0
+65,2016-01-24-118,1.0
+1,2016-01-24-130,6.0
+2,2016-01-24-130,2.0
+4,2016-01-24-130,9.0
+7,2016-01-24-130,3.0
+8,2016-01-24-130,19.0
+9,2016-01-24-130,2.0
+11,2016-01-24-130,2.0
+12,2016-01-24-130,15.0
+14,2016-01-24-130,2.0
+17,2016-01-24-130,1.0
+18,2016-01-24-130,2.0
+19,2016-01-24-130,3.0
+20,2016-01-24-130,3.0
+21,2016-01-24-130,1.0
+22,2016-01-24-130,11.0
+23,2016-01-24-130,32.0
+24,2016-01-24-130,4.0
+26,2016-01-24-130,1.0
+27,2016-01-24-130,8.0
+28,2016-01-24-130,8.0
+29,2016-01-24-130,1.0
+30,2016-01-24-130,1.0
+31,2016-01-24-130,1.0
+32,2016-01-24-130,1.0
+33,2016-01-24-130,1.0
+34,2016-01-24-130,1.0
+37,2016-01-24-130,3.0
+39,2016-01-24-130,4.0
+40,2016-01-24-130,1.0
+41,2016-01-24-130,2.0
+42,2016-01-24-130,2.0
+43,2016-01-24-130,2.0
+46,2016-01-24-130,4.0
+47,2016-01-24-130,3.0
+48,2016-01-24-130,23.0
+49,2016-01-24-130,1.0
+51,2016-01-24-130,312.0
+53,2016-01-24-130,2.0
+56,2016-01-24-130,4.0
+61,2016-01-24-130,1.0
+62,2016-01-24-130,1.0
+64,2016-01-24-130,4.0
+1,2016-01-24-142,8.0
+2,2016-01-24-142,3.0
+3,2016-01-24-142,3.0
+4,2016-01-24-142,3.0
+5,2016-01-24-142,3.0
+6,2016-01-24-142,3.0
+7,2016-01-24-142,4.0
+8,2016-01-24-142,3.0
+9,2016-01-24-142,3.0
+12,2016-01-24-142,2.0
+14,2016-01-24-142,3.0
+17,2016-01-24-142,1.0
+18,2016-01-24-142,2.0
+19,2016-01-24-142,1.0
+20,2016-01-24-142,1.0
+21,2016-01-24-142,1.0
+22,2016-01-24-142,3.0
+23,2016-01-24-142,17.0
+24,2016-01-24-142,3.0
+25,2016-01-24-142,3.0
+27,2016-01-24-142,8.0
+28,2016-01-24-142,5.0
+29,2016-01-24-142,1.0
+31,2016-01-24-142,1.0
+33,2016-01-24-142,1.0
+37,2016-01-24-142,13.0
+38,2016-01-24-142,1.0
+40,2016-01-24-142,1.0
+43,2016-01-24-142,1.0
+46,2016-01-24-142,2.0
+47,2016-01-24-142,2.0
+48,2016-01-24-142,4.0
+51,2016-01-24-142,37.0
+53,2016-01-24-142,1.0
+54,2016-01-24-142,1.0
+55,2016-01-24-142,1.0
+59,2016-01-24-142,1.0
+62,2016-01-24-142,1.0
+64,2016-01-24-142,1.0
+3,2016-01-24-58,3.0
+4,2016-01-24-58,5.0
+6,2016-01-24-58,1.0
+7,2016-01-24-58,4.0
+8,2016-01-24-58,116.0
+9,2016-01-24-58,4.0
+10,2016-01-24-58,1.0
+12,2016-01-24-58,6.0
+13,2016-01-24-58,1.0
+14,2016-01-24-58,10.0
+18,2016-01-24-58,1.0
+20,2016-01-24-58,4.0
+21,2016-01-24-58,9.0
+22,2016-01-24-58,3.0
+23,2016-01-24-58,126.0
+24,2016-01-24-58,12.0
+26,2016-01-24-58,1.0
+27,2016-01-24-58,2.0
+28,2016-01-24-58,4.0
+29,2016-01-24-58,2.0
+31,2016-01-24-58,2.0
+34,2016-01-24-58,3.0
+35,2016-01-24-58,1.0
+36,2016-01-24-58,3.0
+37,2016-01-24-58,92.0
+38,2016-01-24-58,1.0
+39,2016-01-24-58,1.0
+40,2016-01-24-58,8.0
+41,2016-01-24-58,1.0
+42,2016-01-24-58,4.0
+43,2016-01-24-58,3.0
+45,2016-01-24-58,3.0
+46,2016-01-24-58,92.0
+47,2016-01-24-58,8.0
+48,2016-01-24-58,49.0
+49,2016-01-24-58,2.0
+50,2016-01-24-58,1.0
+51,2016-01-24-58,60.0
+53,2016-01-24-58,2.0
+56,2016-01-24-58,1.0
+58,2016-01-24-58,1.0
+64,2016-01-24-58,1.0
+65,2016-01-24-58,1.0
+1,2016-01-24-70,4.0
+4,2016-01-24-70,6.0
+5,2016-01-24-70,3.0
+6,2016-01-24-70,1.0
+7,2016-01-24-70,4.0
+8,2016-01-24-70,116.0
+9,2016-01-24-70,3.0
+11,2016-01-24-70,3.0
+12,2016-01-24-70,6.0
+13,2016-01-24-70,1.0
+14,2016-01-24-70,9.0
+16,2016-01-24-70,8.0
+17,2016-01-24-70,3.0
+18,2016-01-24-70,5.0
+19,2016-01-24-70,1.0
+20,2016-01-24-70,3.0
+21,2016-01-24-70,5.0
+22,2016-01-24-70,3.0
+23,2016-01-24-70,126.0
+24,2016-01-24-70,33.0
+26,2016-01-24-70,1.0
+27,2016-01-24-70,3.0
+28,2016-01-24-70,92.0
+29,2016-01-24-70,1.0
+30,2016-01-24-70,4.0
+31,2016-01-24-70,3.0
+33,2016-01-24-70,3.0
+34,2016-01-24-70,1.0
+36,2016-01-24-70,1.0
+37,2016-01-24-70,149.0
+38,2016-01-24-70,2.0
+39,2016-01-24-70,2.0
+40,2016-01-24-70,4.0
+41,2016-01-24-70,1.0
+42,2016-01-24-70,1.0
+45,2016-01-24-70,3.0
+46,2016-01-24-70,149.0
+47,2016-01-24-70,2.0
+48,2016-01-24-70,33.0
+50,2016-01-24-70,1.0
+51,2016-01-24-70,72.0
+53,2016-01-24-70,1.0
+55,2016-01-24-70,1.0
+56,2016-01-24-70,1.0
+58,2016-01-24-70,2.0
+59,2016-01-24-70,1.0
+60,2016-01-24-70,1.0
+62,2016-01-24-70,1.0
+65,2016-01-24-70,1.0
+66,2016-01-24-70,1.0
+1,2016-01-24-82,49.0
+4,2016-01-24-82,2.0
+5,2016-01-24-82,3.0
+6,2016-01-24-82,1.0
+7,2016-01-24-82,12.0
+8,2016-01-24-82,234.0
+11,2016-01-24-82,5.0
+12,2016-01-24-82,10.0
+14,2016-01-24-82,10.0
+18,2016-01-24-82,3.0
+19,2016-01-24-82,4.0
+20,2016-01-24-82,1.0
+21,2016-01-24-82,5.0
+22,2016-01-24-82,5.0
+23,2016-01-24-82,234.0
+24,2016-01-24-82,5.0
+25,2016-01-24-82,3.0
+26,2016-01-24-82,11.0
+27,2016-01-24-82,1.0
+28,2016-01-24-82,12.0
+29,2016-01-24-82,3.0
+31,2016-01-24-82,1.0
+33,2016-01-24-82,3.0
+34,2016-01-24-82,4.0
+37,2016-01-24-82,149.0
+38,2016-01-24-82,2.0
+40,2016-01-24-82,3.0
+42,2016-01-24-82,3.0
+43,2016-01-24-82,3.0
+45,2016-01-24-82,4.0
+46,2016-01-24-82,12.0
+47,2016-01-24-82,2.0
+48,2016-01-24-82,86.0
+51,2016-01-24-82,707.0
+54,2016-01-24-82,1.0
+58,2016-01-24-82,1.0
+59,2016-01-24-82,2.0
+62,2016-01-24-82,1.0
+63,2016-01-24-82,1.0
+64,2016-01-24-82,1.0
+65,2016-01-24-82,1.0
+1,2016-01-24-94,32.0
+2,2016-01-24-94,1.0
+4,2016-01-24-94,6.0
+5,2016-01-24-94,3.0
+6,2016-01-24-94,1.0
+7,2016-01-24-94,116.0
+8,2016-01-24-94,160.0
+10,2016-01-24-94,1.0
+12,2016-01-24-94,10.0
+14,2016-01-24-94,10.0
+15,2016-01-24-94,3.0
+19,2016-01-24-94,1.0
+20,2016-01-24-94,20.0
+21,2016-01-24-94,1.0
+22,2016-01-24-94,3.0
+23,2016-01-24-94,126.0
+24,2016-01-24-94,4.0
+26,2016-01-24-94,4.0
+27,2016-01-24-94,9.0
+28,2016-01-24-94,92.0
+29,2016-01-24-94,2.0
+30,2016-01-24-94,3.0
+31,2016-01-24-94,3.0
+34,2016-01-24-94,4.0
+36,2016-01-24-94,4.0
+37,2016-01-24-94,12.0
+38,2016-01-24-94,4.0
+40,2016-01-24-94,3.0
+41,2016-01-24-94,1.0
+42,2016-01-24-94,4.0
+46,2016-01-24-94,23.0
+47,2016-01-24-94,3.0
+48,2016-01-24-94,434.0
+51,2016-01-24-94,707.0
+54,2016-01-24-94,1.0
+58,2016-01-24-94,1.0
+64,2016-01-24-94,1.0
+1,2016-01-26-106,3.0
+4,2016-01-26-106,14.0
+6,2016-01-26-106,1.0
+7,2016-01-26-106,316.0
+8,2016-01-26-106,676.0
+9,2016-01-26-106,1.0
+11,2016-01-26-106,1.0
+12,2016-01-26-106,103.0
+13,2016-01-26-106,2.0
+14,2016-01-26-106,33.0
+15,2016-01-26-106,2.0
+17,2016-01-26-106,1.0
+18,2016-01-26-106,3.0
+19,2016-01-26-106,13.0
+20,2016-01-26-106,28.0
+21,2016-01-26-106,4.0
+22,2016-01-26-106,38.0
+23,2016-01-26-106,434.0
+24,2016-01-26-106,9.0
+25,2016-01-26-106,2.0
+26,2016-01-26-106,56.0
+27,2016-01-26-106,9.0
+28,2016-01-26-106,149.0
+29,2016-01-26-106,19.0
+30,2016-01-26-106,3.0
+34,2016-01-26-106,2.0
+35,2016-01-26-106,4.0
+36,2016-01-26-106,3.0
+37,2016-01-26-106,149.0
+39,2016-01-26-106,5.0
+41,2016-01-26-106,1.0
+42,2016-01-26-106,11.0
+46,2016-01-26-106,92.0
+48,2016-01-26-106,434.0
+49,2016-01-26-106,1.0
+50,2016-01-26-106,1.0
+51,2016-01-26-106,627.0
+52,2016-01-26-106,3.0
+53,2016-01-26-106,2.0
+54,2016-01-26-106,1.0
+60,2016-01-26-106,2.0
+64,2016-01-26-106,2.0
+66,2016-01-26-106,2.0
+1,2016-01-26-118,6.0
+2,2016-01-26-118,2.0
+4,2016-01-26-118,6.0
+6,2016-01-26-118,21.0
+7,2016-01-26-118,116.0
+8,2016-01-26-118,111.0
+9,2016-01-26-118,2.0
+10,2016-01-26-118,2.0
+12,2016-01-26-118,6.0
+14,2016-01-26-118,6.0
+16,2016-01-26-118,1.0
+19,2016-01-26-118,2.0
+20,2016-01-26-118,4.0
+22,2016-01-26-118,27.0
+23,2016-01-26-118,126.0
+24,2016-01-26-118,4.0
+25,2016-01-26-118,28.0
+26,2016-01-26-118,8.0
+27,2016-01-26-118,8.0
+28,2016-01-26-118,10.0
+29,2016-01-26-118,3.0
+31,2016-01-26-118,1.0
+35,2016-01-26-118,3.0
+36,2016-01-26-118,3.0
+37,2016-01-26-118,7.0
+38,2016-01-26-118,3.0
+40,2016-01-26-118,1.0
+42,2016-01-26-118,1.0
+43,2016-01-26-118,2.0
+44,2016-01-26-118,1.0
+45,2016-01-26-118,1.0
+46,2016-01-26-118,4.0
+47,2016-01-26-118,2.0
+48,2016-01-26-118,33.0
+51,2016-01-26-118,74.0
+52,2016-01-26-118,2.0
+53,2016-01-26-118,4.0
+1,2016-01-26-130,6.0
+3,2016-01-26-130,1.0
+4,2016-01-26-130,9.0
+7,2016-01-26-130,42.0
+8,2016-01-26-130,79.0
+9,2016-01-26-130,3.0
+10,2016-01-26-130,3.0
+11,2016-01-26-130,2.0
+12,2016-01-26-130,15.0
+14,2016-01-26-130,2.0
+20,2016-01-26-130,11.0
+21,2016-01-26-130,6.0
+22,2016-01-26-130,15.0
+23,2016-01-26-130,26.0
+24,2016-01-26-130,5.0
+25,2016-01-26-130,28.0
+26,2016-01-26-130,9.0
+27,2016-01-26-130,7.0
+28,2016-01-26-130,8.0
+29,2016-01-26-130,1.0
+30,2016-01-26-130,1.0
+31,2016-01-26-130,2.0
+32,2016-01-26-130,1.0
+33,2016-01-26-130,2.0
+34,2016-01-26-130,1.0
+35,2016-01-26-130,4.0
+36,2016-01-26-130,1.0
+37,2016-01-26-130,7.0
+39,2016-01-26-130,2.0
+41,2016-01-26-130,1.0
+42,2016-01-26-130,2.0
+43,2016-01-26-130,3.0
+46,2016-01-26-130,4.0
+47,2016-01-26-130,1.0
+48,2016-01-26-130,49.0
+49,2016-01-26-130,1.0
+51,2016-01-26-130,289.0
+52,2016-01-26-130,1.0
+56,2016-01-26-130,1.0
+61,2016-01-26-130,1.0
+66,2016-01-26-130,1.0
+1,2016-01-26-142,8.0
+4,2016-01-26-142,3.0
+6,2016-01-26-142,3.0
+7,2016-01-26-142,4.0
+8,2016-01-26-142,2.0
+11,2016-01-26-142,3.0
+12,2016-01-26-142,4.0
+14,2016-01-26-142,3.0
+18,2016-01-26-142,2.0
+19,2016-01-26-142,2.0
+20,2016-01-26-142,1.0
+21,2016-01-26-142,1.0
+22,2016-01-26-142,3.0
+23,2016-01-26-142,15.0
+24,2016-01-26-142,2.0
+25,2016-01-26-142,3.0
+26,2016-01-26-142,2.0
+27,2016-01-26-142,6.0
+28,2016-01-26-142,5.0
+29,2016-01-26-142,3.0
+32,2016-01-26-142,1.0
+33,2016-01-26-142,1.0
+37,2016-01-26-142,13.0
+39,2016-01-26-142,1.0
+40,2016-01-26-142,1.0
+42,2016-01-26-142,2.0
+43,2016-01-26-142,1.0
+46,2016-01-26-142,2.0
+47,2016-01-26-142,2.0
+48,2016-01-26-142,8.0
+49,2016-01-26-142,1.0
+51,2016-01-26-142,59.0
+53,2016-01-26-142,1.0
+55,2016-01-26-142,1.0
+56,2016-01-26-142,3.0
+58,2016-01-26-142,2.0
+60,2016-01-26-142,1.0
+61,2016-01-26-142,1.0
+63,2016-01-26-142,3.0
+4,2016-01-26-46,4.0
+6,2016-01-26-46,2.0
+7,2016-01-26-46,8.0
+8,2016-01-26-46,676.0
+10,2016-01-26-46,1.0
+12,2016-01-26-46,6.0
+13,2016-01-26-46,1.0
+14,2016-01-26-46,8.0
+16,2016-01-26-46,5.0
+18,2016-01-26-46,7.0
+20,2016-01-26-46,6.0
+21,2016-01-26-46,6.0
+22,2016-01-26-46,1.0
+23,2016-01-26-46,434.0
+24,2016-01-26-46,13.0
+25,2016-01-26-46,1.0
+26,2016-01-26-46,6.0
+27,2016-01-26-46,26.0
+28,2016-01-26-46,140.0
+29,2016-01-26-46,26.0
+31,2016-01-26-46,1.0
+32,2016-01-26-46,1.0
+34,2016-01-26-46,1.0
+35,2016-01-26-46,2.0
+37,2016-01-26-46,149.0
+39,2016-01-26-46,1.0
+40,2016-01-26-46,2.0
+42,2016-01-26-46,54.0
+43,2016-01-26-46,1.0
+44,2016-01-26-46,5.0
+46,2016-01-26-46,149.0
+47,2016-01-26-46,4.0
+48,2016-01-26-46,13.0
+51,2016-01-26-46,115.0
+56,2016-01-26-46,2.0
+59,2016-01-26-46,1.0
+62,2016-01-26-46,2.0
+64,2016-01-26-46,2.0
+65,2016-01-26-46,1.0
+1,2016-01-26-58,32.0
+2,2016-01-26-58,3.0
+3,2016-01-26-58,3.0
+4,2016-01-26-58,33.0
+5,2016-01-26-58,3.0
+6,2016-01-26-58,9.0
+7,2016-01-26-58,116.0
+8,2016-01-26-58,676.0
+9,2016-01-26-58,2.0
+11,2016-01-26-58,1.0
+12,2016-01-26-58,6.0
+13,2016-01-26-58,2.0
+14,2016-01-26-58,13.0
+16,2016-01-26-58,7.0
+17,2016-01-26-58,4.0
+18,2016-01-26-58,1.0
+19,2016-01-26-58,6.0
+20,2016-01-26-58,6.0
+21,2016-01-26-58,6.0
+22,2016-01-26-58,5.0
+23,2016-01-26-58,434.0
+24,2016-01-26-58,126.0
+25,2016-01-26-58,6.0
+26,2016-01-26-58,6.0
+27,2016-01-26-58,4.0
+28,2016-01-26-58,149.0
+29,2016-01-26-58,1.0
+30,2016-01-26-58,3.0
+31,2016-01-26-58,1.0
+32,2016-01-26-58,3.0
+33,2016-01-26-58,1.0
+34,2016-01-26-58,3.0
+36,2016-01-26-58,2.0
+37,2016-01-26-58,434.0
+38,2016-01-26-58,12.0
+39,2016-01-26-58,1.0
+40,2016-01-26-58,3.0
+41,2016-01-26-58,2.0
+42,2016-01-26-58,4.0
+43,2016-01-26-58,3.0
+45,2016-01-26-58,3.0
+46,2016-01-26-58,149.0
+47,2016-01-26-58,1.0
+48,2016-01-26-58,149.0
+49,2016-01-26-58,1.0
+51,2016-01-26-58,707.0
+53,2016-01-26-58,5.0
+54,2016-01-26-58,2.0
+56,2016-01-26-58,1.0
+58,2016-01-26-58,1.0
+59,2016-01-26-58,2.0
+60,2016-01-26-58,1.0
+62,2016-01-26-58,1.0
+65,2016-01-26-58,1.0
+1,2016-01-26-70,2.0
+3,2016-01-26-70,3.0
+4,2016-01-26-70,2.0
+6,2016-01-26-70,1.0
+7,2016-01-26-70,8.0
+8,2016-01-26-70,111.0
+9,2016-01-26-70,1.0
+10,2016-01-26-70,3.0
+11,2016-01-26-70,1.0
+12,2016-01-26-70,6.0
+13,2016-01-26-70,3.0
+14,2016-01-26-70,2.0
+18,2016-01-26-70,3.0
+19,2016-01-26-70,1.0
+20,2016-01-26-70,6.0
+21,2016-01-26-70,2.0
+22,2016-01-26-70,4.0
+23,2016-01-26-70,126.0
+24,2016-01-26-70,6.0
+25,2016-01-26-70,5.0
+26,2016-01-26-70,2.0
+27,2016-01-26-70,1.0
+28,2016-01-26-70,54.0
+29,2016-01-26-70,1.0
+31,2016-01-26-70,2.0
+33,2016-01-26-70,2.0
+34,2016-01-26-70,3.0
+36,2016-01-26-70,2.0
+37,2016-01-26-70,99.0
+38,2016-01-26-70,3.0
+41,2016-01-26-70,1.0
+42,2016-01-26-70,4.0
+43,2016-01-26-70,3.0
+44,2016-01-26-70,3.0
+45,2016-01-26-70,3.0
+46,2016-01-26-70,4.0
+47,2016-01-26-70,2.0
+48,2016-01-26-70,149.0
+49,2016-01-26-70,1.0
+51,2016-01-26-70,707.0
+52,2016-01-26-70,1.0
+53,2016-01-26-70,1.0
+58,2016-01-26-70,1.0
+60,2016-01-26-70,1.0
+1,2016-01-26-82,2.0
+4,2016-01-26-82,9.0
+6,2016-01-26-82,3.0
+7,2016-01-26-82,116.0
+8,2016-01-26-82,676.0
+9,2016-01-26-82,2.0
+11,2016-01-26-82,6.0
+12,2016-01-26-82,6.0
+14,2016-01-26-82,9.0
+16,2016-01-26-82,3.0
+17,2016-01-26-82,3.0
+18,2016-01-26-82,2.0
+19,2016-01-26-82,6.0
+20,2016-01-26-82,6.0
+21,2016-01-26-82,6.0
+22,2016-01-26-82,1.0
+23,2016-01-26-82,160.0
+24,2016-01-26-82,92.0
+25,2016-01-26-82,4.0
+26,2016-01-26-82,4.0
+27,2016-01-26-82,26.0
+28,2016-01-26-82,103.0
+29,2016-01-26-82,5.0
+30,2016-01-26-82,3.0
+31,2016-01-26-82,3.0
+33,2016-01-26-82,3.0
+34,2016-01-26-82,3.0
+37,2016-01-26-82,149.0
+38,2016-01-26-82,2.0
+39,2016-01-26-82,3.0
+40,2016-01-26-82,2.0
+41,2016-01-26-82,3.0
+42,2016-01-26-82,4.0
+45,2016-01-26-82,3.0
+46,2016-01-26-82,33.0
+47,2016-01-26-82,3.0
+48,2016-01-26-82,324.0
+50,2016-01-26-82,1.0
+51,2016-01-26-82,707.0
+52,2016-01-26-82,1.0
+53,2016-01-26-82,2.0
+58,2016-01-26-82,1.0
+59,2016-01-26-82,2.0
+60,2016-01-26-82,1.0
+62,2016-01-26-82,1.0
+64,2016-01-26-82,2.0
+65,2016-01-26-82,1.0
+1,2016-01-26-94,2.0
+2,2016-01-26-94,5.0
+3,2016-01-26-94,3.0
+4,2016-01-26-94,2.0
+7,2016-01-26-94,13.0
+8,2016-01-26-94,676.0
+9,2016-01-26-94,2.0
+12,2016-01-26-94,6.0
+13,2016-01-26-94,3.0
+14,2016-01-26-94,6.0
+18,2016-01-26-94,3.0
+19,2016-01-26-94,9.0
+20,2016-01-26-94,6.0
+21,2016-01-26-94,5.0
+22,2016-01-26-94,6.0
+23,2016-01-26-94,234.0
+24,2016-01-26-94,6.0
+25,2016-01-26-94,5.0
+26,2016-01-26-94,4.0
+27,2016-01-26-94,2.0
+28,2016-01-26-94,92.0
+29,2016-01-26-94,2.0
+31,2016-01-26-94,2.0
+32,2016-01-26-94,3.0
+33,2016-01-26-94,1.0
+37,2016-01-26-94,33.0
+38,2016-01-26-94,2.0
+42,2016-01-26-94,1.0
+43,2016-01-26-94,3.0
+45,2016-01-26-94,3.0
+46,2016-01-26-94,3.0
+47,2016-01-26-94,1.0
+48,2016-01-26-94,310.0
+51,2016-01-26-94,707.0
+56,2016-01-26-94,1.0
+58,2016-01-26-94,1.0
+61,2016-01-26-94,1.0
+63,2016-01-26-94,1.0
+1,2016-01-28-106,49.0
+2,2016-01-28-106,1.0
+4,2016-01-28-106,14.0
+5,2016-01-28-106,3.0
+7,2016-01-28-106,116.0
+8,2016-01-28-106,676.0
+9,2016-01-28-106,1.0
+11,2016-01-28-106,1.0
+12,2016-01-28-106,14.0
+14,2016-01-28-106,33.0
+16,2016-01-28-106,2.0
+19,2016-01-28-106,4.0
+20,2016-01-28-106,24.0
+21,2016-01-28-106,6.0
+22,2016-01-28-106,38.0
+23,2016-01-28-106,434.0
+24,2016-01-28-106,5.0
+26,2016-01-28-106,19.0
+27,2016-01-28-106,9.0
+28,2016-01-28-106,16.0
+29,2016-01-28-106,3.0
+31,2016-01-28-106,3.0
+34,2016-01-28-106,2.0
+35,2016-01-28-106,18.0
+36,2016-01-28-106,18.0
+37,2016-01-28-106,149.0
+38,2016-01-28-106,2.0
+42,2016-01-28-106,4.0
+43,2016-01-28-106,2.0
+46,2016-01-28-106,16.0
+47,2016-01-28-106,2.0
+48,2016-01-28-106,434.0
+49,2016-01-28-106,2.0
+50,2016-01-28-106,1.0
+51,2016-01-28-106,707.0
+53,2016-01-28-106,2.0
+56,2016-01-28-106,2.0
+57,2016-01-28-106,1.0
+61,2016-01-28-106,1.0
+66,2016-01-28-106,1.0
+1,2016-01-28-118,4.0
+4,2016-01-28-118,6.0
+5,2016-01-28-118,1.0
+6,2016-01-28-118,1.0
+7,2016-01-28-118,116.0
+8,2016-01-28-118,48.0
+9,2016-01-28-118,3.0
+11,2016-01-28-118,1.0
+12,2016-01-28-118,4.0
+14,2016-01-28-118,6.0
+15,2016-01-28-118,1.0
+17,2016-01-28-118,1.0
+18,2016-01-28-118,1.0
+19,2016-01-28-118,3.0
+20,2016-01-28-118,21.0
+21,2016-01-28-118,2.0
+22,2016-01-28-118,18.0
+23,2016-01-28-118,160.0
+24,2016-01-28-118,3.0
+25,2016-01-28-118,1.0
+26,2016-01-28-118,9.0
+27,2016-01-28-118,8.0
+28,2016-01-28-118,10.0
+29,2016-01-28-118,3.0
+34,2016-01-28-118,2.0
+35,2016-01-28-118,12.0
+37,2016-01-28-118,10.0
+39,2016-01-28-118,2.0
+41,2016-01-28-118,1.0
+42,2016-01-28-118,2.0
+43,2016-01-28-118,2.0
+46,2016-01-28-118,5.0
+48,2016-01-28-118,33.0
+49,2016-01-28-118,1.0
+51,2016-01-28-118,436.0
+52,2016-01-28-118,1.0
+53,2016-01-28-118,1.0
+54,2016-01-28-118,1.0
+57,2016-01-28-118,1.0
+65,2016-01-28-118,1.0
+1,2016-01-28-130,6.0
+3,2016-01-28-130,1.0
+4,2016-01-28-130,5.0
+6,2016-01-28-130,2.0
+7,2016-01-28-130,7.0
+8,2016-01-28-130,32.0
+9,2016-01-28-130,2.0
+10,2016-01-28-130,1.0
+12,2016-01-28-130,8.0
+14,2016-01-28-130,3.0
+16,2016-01-28-130,1.0
+18,2016-01-28-130,2.0
+19,2016-01-28-130,2.0
+20,2016-01-28-130,7.0
+21,2016-01-28-130,7.0
+22,2016-01-28-130,19.0
+23,2016-01-28-130,32.0
+24,2016-01-28-130,4.0
+25,2016-01-28-130,1.0
+26,2016-01-28-130,1.0
+27,2016-01-28-130,8.0
+28,2016-01-28-130,39.0
+29,2016-01-28-130,3.0
+30,2016-01-28-130,2.0
+31,2016-01-28-130,4.0
+34,2016-01-28-130,1.0
+35,2016-01-28-130,4.0
+36,2016-01-28-130,1.0
+37,2016-01-28-130,7.0
+39,2016-01-28-130,5.0
+40,2016-01-28-130,1.0
+42,2016-01-28-130,4.0
+43,2016-01-28-130,3.0
+46,2016-01-28-130,4.0
+48,2016-01-28-130,59.0
+51,2016-01-28-130,263.0
+52,2016-01-28-130,1.0
+56,2016-01-28-130,4.0
+60,2016-01-28-130,1.0
+63,2016-01-28-130,1.0
+64,2016-01-28-130,4.0
+66,2016-01-28-130,4.0
+1,2016-01-28-142,3.0
+4,2016-01-28-142,4.0
+7,2016-01-28-142,3.0
+8,2016-01-28-142,15.0
+9,2016-01-28-142,3.0
+11,2016-01-28-142,3.0
+12,2016-01-28-142,4.0
+14,2016-01-28-142,3.0
+16,2016-01-28-142,1.0
+17,2016-01-28-142,1.0
+18,2016-01-28-142,1.0
+19,2016-01-28-142,1.0
+21,2016-01-28-142,1.0
+22,2016-01-28-142,3.0
+23,2016-01-28-142,17.0
+25,2016-01-28-142,3.0
+26,2016-01-28-142,3.0
+27,2016-01-28-142,6.0
+28,2016-01-28-142,5.0
+31,2016-01-28-142,4.0
+36,2016-01-28-142,1.0
+37,2016-01-28-142,21.0
+39,2016-01-28-142,2.0
+42,2016-01-28-142,2.0
+44,2016-01-28-142,1.0
+46,2016-01-28-142,2.0
+47,2016-01-28-142,2.0
+48,2016-01-28-142,8.0
+51,2016-01-28-142,29.0
+56,2016-01-28-142,3.0
+57,2016-01-28-142,1.0
+59,2016-01-28-142,3.0
+60,2016-01-28-142,3.0
+64,2016-01-28-142,1.0
+1,2016-01-28-58,32.0
+2,2016-01-28-58,3.0
+4,2016-01-28-58,16.0
+5,2016-01-28-58,3.0
+6,2016-01-28-58,3.0
+7,2016-01-28-58,16.0
+8,2016-01-28-58,676.0
+9,2016-01-28-58,3.0
+10,2016-01-28-58,3.0
+11,2016-01-28-58,1.0
+12,2016-01-28-58,10.0
+14,2016-01-28-58,16.0
+16,2016-01-28-58,4.0
+17,2016-01-28-58,1.0
+18,2016-01-28-58,2.0
+20,2016-01-28-58,4.0
+21,2016-01-28-58,4.0
+22,2016-01-28-58,5.0
+23,2016-01-28-58,434.0
+24,2016-01-28-58,16.0
+25,2016-01-28-58,4.0
+26,2016-01-28-58,6.0
+27,2016-01-28-58,20.0
+28,2016-01-28-58,149.0
+29,2016-01-28-58,4.0
+31,2016-01-28-58,1.0
+32,2016-01-28-58,3.0
+37,2016-01-28-58,149.0
+38,2016-01-28-58,1.0
+39,2016-01-28-58,1.0
+40,2016-01-28-58,1.0
+41,2016-01-28-58,1.0
+42,2016-01-28-58,92.0
+43,2016-01-28-58,3.0
+45,2016-01-28-58,3.0
+46,2016-01-28-58,16.0
+47,2016-01-28-58,2.0
+48,2016-01-28-58,149.0
+49,2016-01-28-58,1.0
+50,2016-01-28-58,1.0
+51,2016-01-28-58,707.0
+52,2016-01-28-58,1.0
+53,2016-01-28-58,5.0
+54,2016-01-28-58,2.0
+58,2016-01-28-58,2.0
+60,2016-01-28-58,1.0
+61,2016-01-28-58,1.0
+1,2016-01-28-70,6.0
+2,2016-01-28-70,1.0
+3,2016-01-28-70,3.0
+4,2016-01-28-70,3.0
+6,2016-01-28-70,1.0
+7,2016-01-28-70,33.0
+8,2016-01-28-70,160.0
+9,2016-01-28-70,2.0
+13,2016-01-28-70,3.0
+14,2016-01-28-70,10.0
+17,2016-01-28-70,3.0
+18,2016-01-28-70,1.0
+20,2016-01-28-70,2.0
+22,2016-01-28-70,1.0
+23,2016-01-28-70,234.0
+24,2016-01-28-70,4.0
+26,2016-01-28-70,4.0
+27,2016-01-28-70,5.0
+28,2016-01-28-70,92.0
+29,2016-01-28-70,9.0
+31,2016-01-28-70,3.0
+33,2016-01-28-70,3.0
+35,2016-01-28-70,1.0
+37,2016-01-28-70,33.0
+38,2016-01-28-70,1.0
+41,2016-01-28-70,1.0
+42,2016-01-28-70,5.0
+46,2016-01-28-70,9.0
+47,2016-01-28-70,3.0
+48,2016-01-28-70,149.0
+50,2016-01-28-70,1.0
+51,2016-01-28-70,707.0
+53,2016-01-28-70,1.0
+57,2016-01-28-70,1.0
+58,2016-01-28-70,1.0
+64,2016-01-28-70,1.0
+66,2016-01-28-70,1.0
+1,2016-01-28-82,2.0
+3,2016-01-28-82,3.0
+4,2016-01-28-82,6.0
+6,2016-01-28-82,1.0
+7,2016-01-28-82,16.0
+8,2016-01-28-82,676.0
+9,2016-01-28-82,4.0
+12,2016-01-28-82,10.0
+14,2016-01-28-82,10.0
+16,2016-01-28-82,2.0
+17,2016-01-28-82,2.0
+18,2016-01-28-82,6.0
+19,2016-01-28-82,9.0
+20,2016-01-28-82,20.0
+22,2016-01-28-82,2.0
+23,2016-01-28-82,234.0
+24,2016-01-28-82,16.0
+26,2016-01-28-82,4.0
+27,2016-01-28-82,20.0
+28,2016-01-28-82,92.0
+29,2016-01-28-82,4.0
+30,2016-01-28-82,3.0
+31,2016-01-28-82,3.0
+34,2016-01-28-82,1.0
+35,2016-01-28-82,1.0
+36,2016-01-28-82,3.0
+37,2016-01-28-82,149.0
+38,2016-01-28-82,1.0
+40,2016-01-28-82,3.0
+42,2016-01-28-82,3.0
+46,2016-01-28-82,12.0
+47,2016-01-28-82,2.0
+48,2016-01-28-82,149.0
+50,2016-01-28-82,1.0
+51,2016-01-28-82,707.0
+52,2016-01-28-82,1.0
+53,2016-01-28-82,4.0
+58,2016-01-28-82,4.0
+59,2016-01-28-82,2.0
+61,2016-01-28-82,1.0
+63,2016-01-28-82,1.0
+1,2016-01-28-94,4.0
+3,2016-01-28-94,3.0
+4,2016-01-28-94,1.0
+6,2016-01-28-94,3.0
+7,2016-01-28-94,116.0
+8,2016-01-28-94,676.0
+11,2016-01-28-94,4.0
+12,2016-01-28-94,10.0
+13,2016-01-28-94,1.5
+14,2016-01-28-94,10.0
+16,2016-01-28-94,3.0
+18,2016-01-28-94,3.0
+19,2016-01-28-94,2.0
+20,2016-01-28-94,4.0
+21,2016-01-28-94,4.0
+22,2016-01-28-94,2.0
+23,2016-01-28-94,310.0
+24,2016-01-28-94,4.0
+25,2016-01-28-94,3.0
+26,2016-01-28-94,1.0
+27,2016-01-28-94,2.0
+28,2016-01-28-94,92.0
+32,2016-01-28-94,3.0
+33,2016-01-28-94,3.0
+34,2016-01-28-94,3.0
+35,2016-01-28-94,1.0
+36,2016-01-28-94,3.0
+37,2016-01-28-94,16.0
+38,2016-01-28-94,3.0
+39,2016-01-28-94,2.0
+40,2016-01-28-94,3.0
+42,2016-01-28-94,4.0
+45,2016-01-28-94,3.0
+46,2016-01-28-94,9.0
+47,2016-01-28-94,2.0
+48,2016-01-28-94,336.0
+49,2016-01-28-94,1.0
+51,2016-01-28-94,707.0
+53,2016-01-28-94,1.0
+54,2016-01-28-94,1.0
+60,2016-01-28-94,1.0
+66,2016-01-28-94,1.0
+1,2016-01-30-106,5.0
+2,2016-01-30-106,1.0
+4,2016-01-30-106,11.0
+7,2016-01-30-106,116.0
+8,2016-01-30-106,132.0
+9,2016-01-30-106,6.0
+10,2016-01-30-106,2.0
+11,2016-01-30-106,1.0
+12,2016-01-30-106,14.0
+13,2016-01-30-106,2.0
+14,2016-01-30-106,92.0
+15,2016-01-30-106,2.0
+17,2016-01-30-106,1.0
+19,2016-01-30-106,3.0
+20,2016-01-30-106,15.0
+21,2016-01-30-106,3.0
+22,2016-01-30-106,38.0
+23,2016-01-30-106,132.0
+24,2016-01-30-106,92.0
+25,2016-01-30-106,1.0
+26,2016-01-30-106,19.0
+27,2016-01-30-106,9.0
+28,2016-01-30-106,149.0
+29,2016-01-30-106,1.0
+30,2016-01-30-106,3.0
+31,2016-01-30-106,4.0
+34,2016-01-30-106,1.0
+36,2016-01-30-106,3.0
+37,2016-01-30-106,149.0
+40,2016-01-30-106,1.0
+41,2016-01-30-106,1.0
+42,2016-01-30-106,4.0
+44,2016-01-30-106,2.0
+46,2016-01-30-106,5.0
+48,2016-01-30-106,132.0
+51,2016-01-30-106,132.0
+57,2016-01-30-106,1.0
+59,2016-01-30-106,1.0
+61,2016-01-30-106,1.0
+62,2016-01-30-106,1.0
+64,2016-01-30-106,1.0
+66,2016-01-30-106,1.0
+1,2016-01-30-118,5.0
+2,2016-01-30-118,1.0
+3,2016-01-30-118,1.0
+4,2016-01-30-118,26.0
+6,2016-01-30-118,1.0
+7,2016-01-30-118,4.0
+8,2016-01-30-118,111.0
+9,2016-01-30-118,1.0
+11,2016-01-30-118,1.0
+12,2016-01-30-118,6.0
+14,2016-01-30-118,1.0
+18,2016-01-30-118,2.0
+19,2016-01-30-118,5.0
+20,2016-01-30-118,6.0
+21,2016-01-30-118,4.0
+22,2016-01-30-118,19.0
+23,2016-01-30-118,126.0
+24,2016-01-30-118,3.0
+25,2016-01-30-118,7.0
+26,2016-01-30-118,1.0
+27,2016-01-30-118,8.0
+28,2016-01-30-118,2.0
+29,2016-01-30-118,3.0
+30,2016-01-30-118,2.0
+31,2016-01-30-118,1.0
+32,2016-01-30-118,1.0
+34,2016-01-30-118,2.0
+35,2016-01-30-118,5.0
+36,2016-01-30-118,2.0
+37,2016-01-30-118,7.0
+38,2016-01-30-118,3.0
+40,2016-01-30-118,1.0
+41,2016-01-30-118,1.0
+42,2016-01-30-118,5.0
+45,2016-01-30-118,1.0
+47,2016-01-30-118,1.0
+48,2016-01-30-118,10.0
+49,2016-01-30-118,1.0
+51,2016-01-30-118,132.0
+54,2016-01-30-118,1.0
+56,2016-01-30-118,1.0
+58,2016-01-30-118,1.0
+65,2016-01-30-118,1.0
+1,2016-01-30-130,6.0
+2,2016-01-30-130,4.0
+3,2016-01-30-130,1.0
+4,2016-01-30-130,9.0
+7,2016-01-30-130,42.0
+8,2016-01-30-130,132.0
+10,2016-01-30-130,1.0
+12,2016-01-30-130,15.0
+13,2016-01-30-130,1.0
+14,2016-01-30-130,2.0
+19,2016-01-30-130,1.0
+20,2016-01-30-130,2.0
+21,2016-01-30-130,6.0
+22,2016-01-30-130,6.0
+23,2016-01-30-130,19.0
+24,2016-01-30-130,4.0
+26,2016-01-30-130,1.0
+27,2016-01-30-130,1.0
+28,2016-01-30-130,24.0
+29,2016-01-30-130,3.0
+30,2016-01-30-130,2.0
+33,2016-01-30-130,1.0
+37,2016-01-30-130,2.0
+38,2016-01-30-130,1.0
+39,2016-01-30-130,1.0
+40,2016-01-30-130,1.0
+41,2016-01-30-130,4.0
+42,2016-01-30-130,4.0
+43,2016-01-30-130,1.0
+46,2016-01-30-130,5.0
+47,2016-01-30-130,1.0
+48,2016-01-30-130,59.0
+49,2016-01-30-130,1.0
+50,2016-01-30-130,2.0
+51,2016-01-30-130,132.0
+53,2016-01-30-130,2.0
+56,2016-01-30-130,4.0
+57,2016-01-30-130,4.0
+60,2016-01-30-130,4.0
+61,2016-01-30-130,1.0
+62,2016-01-30-130,1.0
+65,2016-01-30-130,1.0
+1,2016-01-30-142,7.0
+4,2016-01-30-142,3.0
+6,2016-01-30-142,3.0
+7,2016-01-30-142,4.0
+8,2016-01-30-142,15.0
+9,2016-01-30-142,3.0
+12,2016-01-30-142,2.0
+14,2016-01-30-142,3.0
+17,2016-01-30-142,1.0
+18,2016-01-30-142,2.0
+19,2016-01-30-142,1.0
+20,2016-01-30-142,1.0
+21,2016-01-30-142,1.0
+22,2016-01-30-142,15.0
+23,2016-01-30-142,17.0
+24,2016-01-30-142,2.0
+25,2016-01-30-142,3.0
+27,2016-01-30-142,6.0
+28,2016-01-30-142,5.0
+29,2016-01-30-142,3.0
+31,2016-01-30-142,2.0
+33,2016-01-30-142,2.0
+34,2016-01-30-142,1.0
+35,2016-01-30-142,1.0
+37,2016-01-30-142,3.0
+38,2016-01-30-142,1.0
+39,2016-01-30-142,1.0
+40,2016-01-30-142,1.0
+41,2016-01-30-142,2.0
+42,2016-01-30-142,1.0
+44,2016-01-30-142,1.0
+45,2016-01-30-142,2.0
+46,2016-01-30-142,1.0
+47,2016-01-30-142,2.0
+48,2016-01-30-142,8.0
+51,2016-01-30-142,132.0
+53,2016-01-30-142,1.0
+56,2016-01-30-142,3.0
+57,2016-01-30-142,3.0
+58,2016-01-30-142,3.0
+64,2016-01-30-142,1.0
+65,2016-01-30-142,1.0
+1,2016-01-30-46,1.0
+2,2016-01-30-46,1.0
+3,2016-01-30-46,1.0
+4,2016-01-30-46,13.0
+5,2016-01-30-46,1.0
+6,2016-01-30-46,4.0
+7,2016-01-30-46,1.0
+8,2016-01-30-46,4.0
+9,2016-01-30-46,1.5
+10,2016-01-30-46,1.0
+11,2016-01-30-46,1.0
+12,2016-01-30-46,1.0
+13,2016-01-30-46,1.0
+14,2016-01-30-46,3.0
+16,2016-01-30-46,1.0
+18,2016-01-30-46,1.0
+19,2016-01-30-46,1.0
+20,2016-01-30-46,13.0
+21,2016-01-30-46,13.0
+22,2016-01-30-46,1.0
+23,2016-01-30-46,8.0
+24,2016-01-30-46,13.0
+26,2016-01-30-46,1.0
+27,2016-01-30-46,8.0
+28,2016-01-30-46,13.0
+29,2016-01-30-46,1.0
+31,2016-01-30-46,2.0
+32,2016-01-30-46,1.0
+33,2016-01-30-46,2.0
+36,2016-01-30-46,8.0
+37,2016-01-30-46,2.0
+38,2016-01-30-46,2.0
+39,2016-01-30-46,2.0
+40,2016-01-30-46,2.0
+42,2016-01-30-46,2.0
+43,2016-01-30-46,2.0
+44,2016-01-30-46,1.0
+45,2016-01-30-46,1.0
+46,2016-01-30-46,13.0
+47,2016-01-30-46,1.0
+48,2016-01-30-46,5.0
+51,2016-01-30-46,22.0
+53,2016-01-30-46,2.0
+55,2016-01-30-46,1.0
+56,2016-01-30-46,1.0
+58,2016-01-30-46,2.0
+59,2016-01-30-46,1.0
+60,2016-01-30-46,2.0
+62,2016-01-30-46,1.0
+65,2016-01-30-46,1.0
+1,2016-01-30-58,5.0
+3,2016-01-30-58,3.0
+5,2016-01-30-58,3.0
+6,2016-01-30-58,5.0
+7,2016-01-30-58,8.0
+8,2016-01-30-58,160.0
+9,2016-01-30-58,13.0
+10,2016-01-30-58,3.0
+11,2016-01-30-58,1.0
+12,2016-01-30-58,4.0
+13,2016-01-30-58,1.5
+14,2016-01-30-58,50.0
+17,2016-01-30-58,3.0
+19,2016-01-30-58,1.0
+20,2016-01-30-58,4.0
+22,2016-01-30-58,1.0
+23,2016-01-30-58,126.0
+24,2016-01-30-58,12.0
+26,2016-01-30-58,4.0
+27,2016-01-30-58,4.0
+28,2016-01-30-58,92.0
+29,2016-01-30-58,2.0
+30,2016-01-30-58,3.0
+31,2016-01-30-58,1.0
+32,2016-01-30-58,3.0
+33,2016-01-30-58,1.0
+37,2016-01-30-58,5.0
+38,2016-01-30-58,1.0
+39,2016-01-30-58,3.0
+40,2016-01-30-58,1.0
+41,2016-01-30-58,3.0
+42,2016-01-30-58,13.0
+43,2016-01-30-58,8.0
+45,2016-01-30-58,3.0
+46,2016-01-30-58,149.0
+47,2016-01-30-58,4.0
+48,2016-01-30-58,92.0
+51,2016-01-30-58,36.0
+58,2016-01-30-58,1.0
+60,2016-01-30-58,1.0
+62,2016-01-30-58,1.0
+2,2016-01-30-70,4.0
+4,2016-01-30-70,1.0
+6,2016-01-30-70,4.0
+7,2016-01-30-70,49.0
+8,2016-01-30-70,132.0
+9,2016-01-30-70,1.0
+10,2016-01-30-70,4.0
+11,2016-01-30-70,1.0
+12,2016-01-30-70,3.0
+13,2016-01-30-70,1.0
+14,2016-01-30-70,50.0
+16,2016-01-30-70,1.0
+17,2016-01-30-70,3.0
+18,2016-01-30-70,3.0
+20,2016-01-30-70,4.0
+21,2016-01-30-70,32.0
+22,2016-01-30-70,4.0
+23,2016-01-30-70,132.0
+24,2016-01-30-70,5.0
+25,2016-01-30-70,4.0
+26,2016-01-30-70,4.0
+27,2016-01-30-70,4.0
+28,2016-01-30-70,33.0
+29,2016-01-30-70,6.0
+31,2016-01-30-70,3.0
+32,2016-01-30-70,3.0
+33,2016-01-30-70,3.0
+34,2016-01-30-70,3.0
+35,2016-01-30-70,1.0
+37,2016-01-30-70,5.0
+38,2016-01-30-70,2.0
+40,2016-01-30-70,3.0
+41,2016-01-30-70,3.0
+42,2016-01-30-70,5.0
+43,2016-01-30-70,3.0
+45,2016-01-30-70,3.0
+46,2016-01-30-70,92.0
+47,2016-01-30-70,3.0
+48,2016-01-30-70,5.0
+51,2016-01-30-70,132.0
+53,2016-01-30-70,2.0
+56,2016-01-30-70,1.0
+57,2016-01-30-70,1.0
+62,2016-01-30-70,1.0
+65,2016-01-30-70,1.0
+1,2016-01-30-82,5.0
+2,2016-01-30-82,4.0
+3,2016-01-30-82,3.0
+4,2016-01-30-82,1.0
+5,2016-01-30-82,4.0
+7,2016-01-30-82,5.0
+8,2016-01-30-82,132.0
+9,2016-01-30-82,8.0
+10,2016-01-30-82,3.0
+11,2016-01-30-82,1.0
+12,2016-01-30-82,13.0
+14,2016-01-30-82,33.0
+16,2016-01-30-82,2.0
+20,2016-01-30-82,12.0
+21,2016-01-30-82,4.0
+22,2016-01-30-82,13.0
+23,2016-01-30-82,132.0
+24,2016-01-30-82,12.0
+25,2016-01-30-82,4.0
+26,2016-01-30-82,6.0
+27,2016-01-30-82,4.0
+28,2016-01-30-82,149.0
+29,2016-01-30-82,6.0
+31,2016-01-30-82,3.0
+33,2016-01-30-82,1.0
+35,2016-01-30-82,3.0
+37,2016-01-30-82,149.0
+38,2016-01-30-82,1.0
+40,2016-01-30-82,3.0
+41,2016-01-30-82,1.0
+42,2016-01-30-82,5.0
+44,2016-01-30-82,3.0
+46,2016-01-30-82,14.0
+47,2016-01-30-82,1.0
+48,2016-01-30-82,86.0
+50,2016-01-30-82,1.0
+51,2016-01-30-82,132.0
+53,2016-01-30-82,1.0
+56,2016-01-30-82,1.0
+63,2016-01-30-82,1.0
+64,2016-01-30-82,4.0
+66,2016-01-30-82,1.0
+1,2016-01-30-94,2.0
+4,2016-01-30-94,2.0
+6,2016-01-30-94,1.0
+7,2016-01-30-94,5.0
+8,2016-01-30-94,132.0
+9,2016-01-30-94,1.0
+11,2016-01-30-94,4.0
+12,2016-01-30-94,50.0
+14,2016-01-30-94,8.0
+16,2016-01-30-94,3.0
+19,2016-01-30-94,13.0
+20,2016-01-30-94,4.0
+21,2016-01-30-94,13.0
+22,2016-01-30-94,4.0
+23,2016-01-30-94,132.0
+24,2016-01-30-94,1.0
+26,2016-01-30-94,2.0
+27,2016-01-30-94,4.0
+28,2016-01-30-94,14.0
+31,2016-01-30-94,1.0
+32,2016-01-30-94,3.0
+33,2016-01-30-94,1.0
+34,2016-01-30-94,1.0
+35,2016-01-30-94,1.0
+36,2016-01-30-94,3.0
+37,2016-01-30-94,5.0
+40,2016-01-30-94,3.0
+42,2016-01-30-94,3.0
+43,2016-01-30-94,3.0
+46,2016-01-30-94,5.0
+48,2016-01-30-94,86.0
+51,2016-01-30-94,132.0
+54,2016-01-30-94,1.0
+58,2016-01-30-94,1.0
+62,2016-01-30-94,1.0
+65,2016-01-30-94,1.0
+21,2016-01-28-70,0.0
+22,2016-01-28-70,0.0
+23,2016-01-28-70,0.0
+24,2016-01-28-70,0.0
+25,2016-01-28-70,0.0
+26,2016-01-28-70,0.0
+27,2016-01-28-70,0.0
+28,2016-01-28-70,0.0
+29,2016-01-28-70,0.0
+30,2016-01-28-70,0.0
+31,2016-01-28-70,0.0
+32,2016-01-28-70,0.0
+33,2016-01-28-70,0.0
+34,2016-01-28-70,0.0
+35,2016-01-28-70,0.0
+36,2016-01-28-70,0.0
+37,2016-01-28-70,0.0
+38,2016-01-28-70,0.0
+39,2016-01-28-70,0.0
+40,2016-01-28-70,0.0
+41,2016-01-28-70,0.0
+42,2016-01-28-70,0.0
+43,2016-01-28-70,0.0
+44,2016-01-28-70,0.0
+45,2016-01-28-70,0.0
+46,2016-01-28-70,0.0
+47,2016-01-28-70,0.0
+48,2016-01-28-70,0.0
+49,2016-01-28-70,0.0
+50,2016-01-28-70,0.0
+51,2016-01-28-70,0.0
+52,2016-01-28-70,0.0
+53,2016-01-28-70,0.0
+54,2016-01-28-70,0.0
+55,2016-01-28-70,0.0
+56,2016-01-28-70,0.0
+57,2016-01-28-70,0.0
+58,2016-01-28-70,0.0
+59,2016-01-28-70,0.0
+60,2016-01-28-70,0.0
+61,2016-01-28-70,0.0
+62,2016-01-28-70,0.0
+63,2016-01-28-70,0.0
+64,2016-01-28-70,0.0
+65,2016-01-28-70,0.0
+66,2016-01-28-70,0.0
+1,2016-01-28-82,0.0
+2,2016-01-28-82,0.0
+3,2016-01-28-82,0.0
+4,2016-01-28-82,0.0
+5,2016-01-28-82,0.0
+6,2016-01-28-82,0.0
+7,2016-01-28-82,0.0
+8,2016-01-28-82,0.0
+9,2016-01-28-82,0.0
+10,2016-01-28-82,0.0
+11,2016-01-28-82,0.0
+12,2016-01-28-82,0.0
+13,2016-01-28-82,0.0
+14,2016-01-28-82,0.0
+15,2016-01-28-82,0.0
+16,2016-01-28-82,0.0
+17,2016-01-28-82,0.0
+18,2016-01-28-82,0.0
+19,2016-01-28-82,0.0
+20,2016-01-28-82,0.0
+21,2016-01-28-82,0.0
+22,2016-01-28-82,0.0
+23,2016-01-28-82,0.0
+24,2016-01-28-82,0.0
+25,2016-01-28-82,0.0
+26,2016-01-28-82,0.0
+27,2016-01-28-82,0.0
+28,2016-01-28-82,0.0
+29,2016-01-28-82,0.0
+30,2016-01-28-82,0.0
+31,2016-01-28-82,0.0
+32,2016-01-28-82,0.0
+33,2016-01-28-82,0.0
+34,2016-01-28-82,0.0
+35,2016-01-28-82,0.0
+36,2016-01-28-82,0.0
+37,2016-01-28-82,0.0
+38,2016-01-28-82,0.0
+39,2016-01-28-82,0.0
+40,2016-01-28-82,0.0
+41,2016-01-28-82,0.0
+42,2016-01-28-82,0.0
+43,2016-01-28-82,0.0
+44,2016-01-28-82,0.0
+45,2016-01-28-82,0.0
+46,2016-01-28-82,0.0
+47,2016-01-28-82,0.0
+48,2016-01-28-82,0.0
+49,2016-01-28-82,0.0
+50,2016-01-28-82,0.0
+51,2016-01-28-82,0.0
+52,2016-01-28-82,0.0
+53,2016-01-28-82,0.0
+54,2016-01-28-82,0.0
+55,2016-01-28-82,0.0
+56,2016-01-28-82,0.0
+57,2016-01-28-82,0.0
+58,2016-01-28-82,0.0
+59,2016-01-28-82,0.0
+60,2016-01-28-82,0.0
+61,2016-01-28-82,0.0
+62,2016-01-28-82,0.0
+63,2016-01-28-82,0.0
+64,2016-01-28-82,0.0
+65,2016-01-28-82,0.0
+66,2016-01-28-82,0.0
+1,2016-01-28-94,0.0
+2,2016-01-28-94,0.0
+3,2016-01-28-94,0.0
+4,2016-01-28-94,0.0
+5,2016-01-28-94,0.0
+6,2016-01-28-94,0.0
+7,2016-01-28-94,0.0
+8,2016-01-28-94,0.0
+9,2016-01-28-94,0.0
+10,2016-01-28-94,0.0
+11,2016-01-28-94,0.0
+12,2016-01-28-94,0.0
+13,2016-01-28-94,0.0
+14,2016-01-28-94,0.0
+15,2016-01-28-94,0.0
+16,2016-01-28-94,0.0
+17,2016-01-28-94,0.0
+18,2016-01-28-94,0.0
+19,2016-01-28-94,0.0
+20,2016-01-28-94,0.0
+21,2016-01-28-94,0.0
+22,2016-01-28-94,0.0
+23,2016-01-28-94,0.0
+24,2016-01-28-94,0.0
+25,2016-01-28-94,0.0
+26,2016-01-28-94,0.0
+27,2016-01-28-94,0.0
+28,2016-01-28-94,0.0
+29,2016-01-28-94,0.0
+30,2016-01-28-94,0.0
+31,2016-01-28-94,0.0
+32,2016-01-28-94,0.0
+33,2016-01-28-94,0.0
+34,2016-01-28-94,0.0
+35,2016-01-28-94,0.0
+36,2016-01-28-94,0.0
+37,2016-01-28-94,0.0
+38,2016-01-28-94,0.0
+39,2016-01-28-94,0.0
+40,2016-01-28-94,0.0
+41,2016-01-28-94,0.0
+42,2016-01-28-94,0.0
+43,2016-01-28-94,0.0
+44,2016-01-28-94,0.0
+45,2016-01-28-94,0.0
+46,2016-01-28-94,0.0
+47,2016-01-28-94,0.0
+48,2016-01-28-94,0.0
+49,2016-01-28-94,0.0
+50,2016-01-28-94,0.0
+51,2016-01-28-94,0.0
+52,2016-01-28-94,0.0
+53,2016-01-28-94,0.0
+54,2016-01-28-94,0.0
+55,2016-01-28-94,0.0
+56,2016-01-28-94,0.0
+57,2016-01-28-94,0.0
+58,2016-01-28-94,0.0
+59,2016-01-28-94,0.0
+60,2016-01-28-94,0.0
+61,2016-01-28-94,0.0
+62,2016-01-28-94,0.0
+63,2016-01-28-94,0.0
+64,2016-01-28-94,0.0
+65,2016-01-28-94,0.0
+66,2016-01-28-94,0.0
+1,2016-01-28-106,0.0
+2,2016-01-28-106,0.0
+3,2016-01-28-106,0.0
+4,2016-01-28-106,0.0
+5,2016-01-28-106,0.0
+6,2016-01-28-106,0.0
+7,2016-01-28-106,0.0
+8,2016-01-28-106,0.0
+9,2016-01-28-106,0.0
+10,2016-01-28-106,0.0
+11,2016-01-28-106,0.0
+12,2016-01-28-106,0.0
+13,2016-01-28-106,0.0
+14,2016-01-28-106,0.0
+15,2016-01-28-106,0.0
+16,2016-01-28-106,0.0
+17,2016-01-28-106,0.0
+18,2016-01-28-106,0.0
+19,2016-01-28-106,0.0
+20,2016-01-28-106,0.0
+21,2016-01-28-106,0.0
+22,2016-01-28-106,0.0
+23,2016-01-28-106,0.0
+24,2016-01-28-106,0.0
+25,2016-01-28-106,0.0
+26,2016-01-28-106,0.0
+27,2016-01-28-106,0.0
+28,2016-01-28-106,0.0
+29,2016-01-28-106,0.0
+30,2016-01-28-106,0.0
+31,2016-01-28-106,0.0
+32,2016-01-28-106,0.0
+33,2016-01-28-106,0.0
+34,2016-01-28-106,0.0
+35,2016-01-28-106,0.0
+36,2016-01-28-106,0.0
+37,2016-01-28-106,0.0
+38,2016-01-28-106,0.0
+39,2016-01-28-106,0.0
+40,2016-01-28-106,0.0
+41,2016-01-28-106,0.0
+42,2016-01-28-106,0.0
+43,2016-01-28-106,0.0
+44,2016-01-28-106,0.0
+45,2016-01-28-106,0.0
+46,2016-01-28-106,0.0
+47,2016-01-28-106,0.0
+48,2016-01-28-106,0.0
+49,2016-01-28-106,0.0
+50,2016-01-28-106,0.0
+51,2016-01-28-106,0.0
+52,2016-01-28-106,0.0
+53,2016-01-28-106,0.0
+54,2016-01-28-106,0.0
+55,2016-01-28-106,0.0
+56,2016-01-28-106,0.0
+57,2016-01-28-106,0.0
+58,2016-01-28-106,0.0
+59,2016-01-28-106,0.0
+60,2016-01-28-106,0.0
+61,2016-01-28-106,0.0
+62,2016-01-28-106,0.0
+63,2016-01-28-106,0.0
+64,2016-01-28-106,0.0
+65,2016-01-28-106,0.0
+66,2016-01-28-106,0.0
+1,2016-01-28-118,0.0
+2,2016-01-28-118,0.0
+3,2016-01-28-118,0.0
+4,2016-01-28-118,0.0
+5,2016-01-28-118,0.0
+6,2016-01-28-118,0.0
+7,2016-01-28-118,0.0
+8,2016-01-28-118,0.0
+9,2016-01-28-118,0.0
+10,2016-01-28-118,0.0
+11,2016-01-28-118,0.0
+12,2016-01-28-118,0.0
+13,2016-01-28-118,0.0
+14,2016-01-28-118,0.0
+15,2016-01-28-118,0.0
+16,2016-01-28-118,0.0
+17,2016-01-28-118,0.0
+18,2016-01-28-118,0.0
+19,2016-01-28-118,0.0
+20,2016-01-28-118,0.0
+21,2016-01-28-118,0.0
+22,2016-01-28-118,0.0
+23,2016-01-28-118,0.0
+24,2016-01-28-118,0.0
+25,2016-01-28-118,0.0
+26,2016-01-28-118,0.0
+27,2016-01-28-118,0.0
+28,2016-01-28-118,0.0
+29,2016-01-28-118,0.0
+30,2016-01-28-118,0.0
+31,2016-01-28-118,0.0
+32,2016-01-28-118,0.0
+33,2016-01-28-118,0.0
+34,2016-01-28-118,0.0
+35,2016-01-28-118,0.0
+36,2016-01-28-118,0.0
+37,2016-01-28-118,0.0
+38,2016-01-28-118,0.0
+39,2016-01-28-118,0.0
+40,2016-01-28-118,0.0
+41,2016-01-28-118,0.0
+42,2016-01-28-118,0.0
+43,2016-01-28-118,0.0
+44,2016-01-28-118,0.0
+45,2016-01-28-118,0.0
+46,2016-01-28-118,0.0
+47,2016-01-28-118,0.0
+48,2016-01-28-118,0.0
+49,2016-01-28-118,0.0
+50,2016-01-28-118,0.0
+51,2016-01-28-118,0.0
+52,2016-01-28-118,0.0
+53,2016-01-28-118,0.0
+54,2016-01-28-118,0.0
+55,2016-01-28-118,0.0
+56,2016-01-28-118,0.0
+57,2016-01-28-118,0.0
+58,2016-01-28-118,0.0
+59,2016-01-28-118,0.0
+60,2016-01-28-118,0.0
+61,2016-01-28-118,0.0
+62,2016-01-28-118,0.0
+63,2016-01-28-118,0.0
+64,2016-01-28-118,0.0
+65,2016-01-28-118,0.0
+66,2016-01-28-118,0.0
+1,2016-01-28-130,0.0
+2,2016-01-28-130,0.0
+3,2016-01-28-130,0.0
+4,2016-01-28-130,0.0
+5,2016-01-28-130,0.0
+6,2016-01-28-130,0.0
+7,2016-01-28-130,0.0
+8,2016-01-28-130,0.0
+9,2016-01-28-130,0.0
+10,2016-01-28-130,0.0
+11,2016-01-28-130,0.0
+12,2016-01-28-130,0.0
+13,2016-01-28-130,0.0
+14,2016-01-28-130,0.0
+15,2016-01-28-130,0.0
+16,2016-01-28-130,0.0
+17,2016-01-28-130,0.0
+18,2016-01-28-130,0.0
+19,2016-01-28-130,0.0
+20,2016-01-28-130,0.0
+21,2016-01-28-130,0.0
+22,2016-01-28-130,0.0
+23,2016-01-28-130,0.0
+24,2016-01-28-130,0.0
+25,2016-01-28-130,0.0
+26,2016-01-28-130,0.0
+27,2016-01-28-130,0.0
+28,2016-01-28-130,0.0
+29,2016-01-28-130,0.0
+30,2016-01-28-130,0.0
+31,2016-01-28-130,0.0
+32,2016-01-28-130,0.0
+33,2016-01-28-130,0.0
+34,2016-01-28-130,0.0
+35,2016-01-28-130,0.0
+36,2016-01-28-130,0.0
+37,2016-01-28-130,0.0
+38,2016-01-28-130,0.0
+39,2016-01-28-130,0.0
+40,2016-01-28-130,0.0
+41,2016-01-28-130,0.0
+42,2016-01-28-130,0.0
+43,2016-01-28-130,0.0
+44,2016-01-28-130,0.0
+45,2016-01-28-130,0.0
+46,2016-01-28-130,0.0
+47,2016-01-28-130,0.0
+48,2016-01-28-130,0.0
+49,2016-01-28-130,0.0
+50,2016-01-28-130,0.0
+51,2016-01-28-130,0.0
+52,2016-01-28-130,0.0
+53,2016-01-28-130,0.0
+54,2016-01-28-130,0.0
+55,2016-01-28-130,0.0
+56,2016-01-28-130,0.0
+57,2016-01-28-130,0.0
+58,2016-01-28-130,0.0
+59,2016-01-28-130,0.0
+60,2016-01-28-130,0.0
+61,2016-01-28-130,0.0
+62,2016-01-28-130,0.0
+63,2016-01-28-130,0.0
+64,2016-01-28-130,0.0
+65,2016-01-28-130,0.0
+66,2016-01-28-130,0.0
+1,2016-01-28-142,0.0
+2,2016-01-28-142,0.0
+3,2016-01-28-142,0.0
+4,2016-01-28-142,0.0
+5,2016-01-28-142,0.0
+6,2016-01-28-142,0.0
+7,2016-01-28-142,0.0
+8,2016-01-28-142,0.0
+9,2016-01-28-142,0.0
+10,2016-01-28-142,0.0
+11,2016-01-28-142,0.0
+12,2016-01-28-142,0.0
+13,2016-01-28-142,0.0
+14,2016-01-28-142,0.0
+15,2016-01-28-142,0.0
+16,2016-01-28-142,0.0
+17,2016-01-28-142,0.0
+18,2016-01-28-142,0.0
+19,2016-01-28-142,0.0
+20,2016-01-28-142,0.0
+21,2016-01-28-142,0.0
+22,2016-01-28-142,0.0
+23,2016-01-28-142,0.0
+24,2016-01-28-142,0.0
+25,2016-01-28-142,0.0
+26,2016-01-28-142,0.0
+27,2016-01-28-142,0.0
+28,2016-01-28-142,0.0
+29,2016-01-28-142,0.0
+30,2016-01-28-142,0.0
+31,2016-01-28-142,0.0
+32,2016-01-28-142,0.0
+33,2016-01-28-142,0.0
+34,2016-01-28-142,0.0
+35,2016-01-28-142,0.0
+36,2016-01-28-142,0.0
+37,2016-01-28-142,0.0
+38,2016-01-28-142,0.0
+39,2016-01-28-142,0.0
+40,2016-01-28-142,0.0
+41,2016-01-28-142,0.0
+42,2016-01-28-142,0.0
+43,2016-01-28-142,0.0
+44,2016-01-28-142,0.0
+45,2016-01-28-142,0.0
+46,2016-01-28-142,0.0
+47,2016-01-28-142,0.0
+48,2016-01-28-142,0.0
+49,2016-01-28-142,0.0
+50,2016-01-28-142,0.0
+51,2016-01-28-142,0.0
+52,2016-01-28-142,0.0
+53,2016-01-28-142,0.0
+54,2016-01-28-142,0.0
+55,2016-01-28-142,0.0
+56,2016-01-28-142,0.0
+57,2016-01-28-142,0.0
+58,2016-01-28-142,0.0
+59,2016-01-28-142,0.0
+60,2016-01-28-142,0.0
+61,2016-01-28-142,0.0
+62,2016-01-28-142,0.0
+63,2016-01-28-142,0.0
+64,2016-01-28-142,0.0
+65,2016-01-28-142,0.0
+66,2016-01-28-142,0.0
+1,2016-01-30-46,0.0
+2,2016-01-30-46,0.0
+3,2016-01-30-46,0.0
+4,2016-01-30-46,0.0
+5,2016-01-30-46,0.0
+6,2016-01-30-46,0.0
+7,2016-01-30-46,0.0
+8,2016-01-30-46,0.0
+9,2016-01-30-46,0.0
+10,2016-01-30-46,0.0
+11,2016-01-30-46,0.0
+12,2016-01-30-46,0.0
+13,2016-01-30-46,0.0
+14,2016-01-30-46,0.0
+15,2016-01-30-46,0.0
+16,2016-01-30-46,0.0
+17,2016-01-30-46,0.0
+18,2016-01-30-46,0.0
+19,2016-01-30-46,0.0
+20,2016-01-30-46,0.0
+21,2016-01-30-46,0.0
+22,2016-01-30-46,0.0
+23,2016-01-30-46,0.0
+24,2016-01-30-46,0.0
+25,2016-01-30-46,0.0
+26,2016-01-30-46,0.0
+27,2016-01-30-46,0.0
+28,2016-01-30-46,0.0
+29,2016-01-30-46,0.0
+30,2016-01-30-46,0.0
+31,2016-01-30-46,0.0
+32,2016-01-30-46,0.0
+33,2016-01-30-46,0.0
+34,2016-01-30-46,0.0
+35,2016-01-30-46,0.0
+36,2016-01-30-46,0.0
+37,2016-01-30-46,0.0
+38,2016-01-30-46,0.0
+39,2016-01-30-46,0.0
+40,2016-01-30-46,0.0
+41,2016-01-30-46,0.0
+42,2016-01-30-46,0.0
+43,2016-01-30-46,0.0
+44,2016-01-30-46,0.0
+45,2016-01-30-46,0.0
+46,2016-01-30-46,0.0
+47,2016-01-30-46,0.0
+48,2016-01-30-46,0.0
+49,2016-01-30-46,0.0
+50,2016-01-30-46,0.0
+51,2016-01-30-46,0.0
+52,2016-01-30-46,0.0
+53,2016-01-30-46,0.0
+54,2016-01-30-46,0.0
+55,2016-01-30-46,0.0
+56,2016-01-30-46,0.0
+57,2016-01-30-46,0.0
+58,2016-01-30-46,0.0
+59,2016-01-30-46,0.0
+60,2016-01-30-46,0.0
+61,2016-01-30-46,0.0
+62,2016-01-30-46,0.0
+63,2016-01-30-46,0.0
+64,2016-01-30-46,0.0
+65,2016-01-30-46,0.0
+66,2016-01-30-46,0.0
+1,2016-01-30-58,0.0
+2,2016-01-30-58,0.0
+3,2016-01-30-58,0.0
+4,2016-01-30-58,0.0
+5,2016-01-30-58,0.0
+6,2016-01-30-58,0.0
+7,2016-01-30-58,0.0
+8,2016-01-30-58,0.0
+9,2016-01-30-58,0.0
+10,2016-01-30-58,0.0
+11,2016-01-30-58,0.0
+12,2016-01-30-58,0.0
+13,2016-01-30-58,0.0
+14,2016-01-30-58,0.0
+15,2016-01-30-58,0.0
+16,2016-01-30-58,0.0
+17,2016-01-30-58,0.0
+18,2016-01-30-58,0.0
+19,2016-01-30-58,0.0
+20,2016-01-30-58,0.0
+21,2016-01-30-58,0.0
+22,2016-01-30-58,0.0
+23,2016-01-30-58,0.0
+24,2016-01-30-58,0.0
+25,2016-01-30-58,0.0
+26,2016-01-30-58,0.0
+27,2016-01-30-58,0.0
+28,2016-01-30-58,0.0
+29,2016-01-30-58,0.0
+30,2016-01-30-58,0.0
+31,2016-01-30-58,0.0
+32,2016-01-30-58,0.0
+33,2016-01-30-58,0.0
+34,2016-01-30-58,0.0
+35,2016-01-30-58,0.0
+36,2016-01-30-58,0.0
+37,2016-01-30-58,0.0
+38,2016-01-30-58,0.0
+39,2016-01-30-58,0.0
+40,2016-01-30-58,0.0
+41,2016-01-30-58,0.0
+42,2016-01-30-58,0.0
+43,2016-01-30-58,0.0
+44,2016-01-30-58,0.0
+45,2016-01-30-58,0.0
+46,2016-01-30-58,0.0
+47,2016-01-30-58,0.0
+48,2016-01-30-58,0.0
+49,2016-01-30-58,0.0
+50,2016-01-30-58,0.0
+51,2016-01-30-58,0.0
+52,2016-01-30-58,0.0
+53,2016-01-30-58,0.0
+54,2016-01-30-58,0.0
+55,2016-01-30-58,0.0
+56,2016-01-30-58,0.0
+57,2016-01-30-58,0.0
+58,2016-01-30-58,0.0
+59,2016-01-30-58,0.0
+60,2016-01-30-58,0.0
+61,2016-01-30-58,0.0
+62,2016-01-30-58,0.0
+63,2016-01-30-58,0.0
+64,2016-01-30-58,0.0
+65,2016-01-30-58,0.0
+66,2016-01-30-58,0.0
+1,2016-01-30-70,0.0
+2,2016-01-30-70,0.0
+3,2016-01-30-70,0.0
+4,2016-01-30-70,0.0
+5,2016-01-30-70,0.0
+6,2016-01-30-70,0.0
+7,2016-01-30-70,0.0
+8,2016-01-30-70,0.0
+9,2016-01-30-70,0.0
+10,2016-01-30-70,0.0
+11,2016-01-30-70,0.0
+12,2016-01-30-70,0.0
+13,2016-01-30-70,0.0
+14,2016-01-30-70,0.0
+15,2016-01-30-70,0.0
+16,2016-01-30-70,0.0
+17,2016-01-30-70,0.0
+18,2016-01-30-70,0.0
+19,2016-01-30-70,0.0
+20,2016-01-30-70,0.0
+21,2016-01-30-70,0.0
+22,2016-01-30-70,0.0
+23,2016-01-30-70,0.0
+24,2016-01-30-70,0.0
+25,2016-01-30-70,0.0
+26,2016-01-30-70,0.0
+27,2016-01-30-70,0.0
+28,2016-01-30-70,0.0
+29,2016-01-30-70,0.0
+30,2016-01-30-70,0.0
+31,2016-01-30-70,0.0
+32,2016-01-30-70,0.0
+33,2016-01-30-70,0.0
+34,2016-01-30-70,0.0
+35,2016-01-30-70,0.0
+36,2016-01-30-70,0.0
+37,2016-01-30-70,0.0
+38,2016-01-30-70,0.0
+39,2016-01-30-70,0.0
+40,2016-01-30-70,0.0
+41,2016-01-30-70,0.0
+42,2016-01-30-70,0.0
+43,2016-01-30-70,0.0
+44,2016-01-30-70,0.0
+45,2016-01-30-70,0.0
+46,2016-01-30-70,0.0
+47,2016-01-30-70,0.0
+48,2016-01-30-70,0.0
+49,2016-01-30-70,0.0
+50,2016-01-30-70,0.0
+51,2016-01-30-70,0.0
+52,2016-01-30-70,0.0
+53,2016-01-30-70,0.0
+54,2016-01-30-70,0.0
+55,2016-01-30-70,0.0
+56,2016-01-30-70,0.0
+57,2016-01-30-70,0.0
+58,2016-01-30-70,0.0
+59,2016-01-30-70,0.0
+60,2016-01-30-70,0.0
+61,2016-01-30-70,0.0
+62,2016-01-30-70,0.0
+63,2016-01-30-70,0.0
+64,2016-01-30-70,0.0
+65,2016-01-30-70,0.0
+66,2016-01-30-70,0.0
+1,2016-01-30-82,0.0
+2,2016-01-30-82,0.0
+3,2016-01-30-82,0.0
+4,2016-01-30-82,0.0
+5,2016-01-30-82,0.0
+6,2016-01-30-82,0.0
+7,2016-01-30-82,0.0
+8,2016-01-30-82,0.0
+9,2016-01-30-82,0.0
+10,2016-01-30-82,0.0
+11,2016-01-30-82,0.0
+12,2016-01-30-82,0.0
+13,2016-01-30-82,0.0
+14,2016-01-30-82,0.0
+15,2016-01-30-82,0.0
+16,2016-01-30-82,0.0
+17,2016-01-30-82,0.0
+18,2016-01-30-82,0.0
+19,2016-01-30-82,0.0
+20,2016-01-30-82,0.0
+21,2016-01-30-82,0.0
+22,2016-01-30-82,0.0
+23,2016-01-30-82,0.0
+24,2016-01-30-82,0.0
+25,2016-01-30-82,0.0
+26,2016-01-30-82,0.0
+27,2016-01-30-82,0.0
+28,2016-01-30-82,0.0
+29,2016-01-30-82,0.0
+30,2016-01-30-82,0.0
+31,2016-01-30-82,0.0
+32,2016-01-30-82,0.0
+33,2016-01-30-82,0.0
+34,2016-01-30-82,0.0
+35,2016-01-30-82,0.0
+36,2016-01-30-82,0.0
+37,2016-01-30-82,0.0
+38,2016-01-30-82,0.0
+39,2016-01-30-82,0.0
+40,2016-01-30-82,0.0
+41,2016-01-30-82,0.0
+42,2016-01-30-82,0.0
+43,2016-01-30-82,0.0
+44,2016-01-30-82,0.0
+45,2016-01-30-82,0.0
+46,2016-01-30-82,0.0
+47,2016-01-30-82,0.0
+48,2016-01-30-82,0.0
+49,2016-01-30-82,0.0
+50,2016-01-30-82,0.0
+51,2016-01-30-82,0.0
+52,2016-01-30-82,0.0
+53,2016-01-30-82,0.0
+54,2016-01-30-82,0.0
+55,2016-01-30-82,0.0
+56,2016-01-30-82,0.0
+57,2016-01-30-82,0.0
+58,2016-01-30-82,0.0
+59,2016-01-30-82,0.0
+60,2016-01-30-82,0.0
+61,2016-01-30-82,0.0
+62,2016-01-30-82,0.0
+63,2016-01-30-82,0.0
+64,2016-01-30-82,0.0
+65,2016-01-30-82,0.0
+66,2016-01-30-82,0.0
+1,2016-01-30-94,0.0
+2,2016-01-30-94,0.0
+3,2016-01-30-94,0.0
+4,2016-01-30-94,0.0
+5,2016-01-30-94,0.0
+6,2016-01-30-94,0.0
+7,2016-01-30-94,0.0
+8,2016-01-30-94,0.0
+9,2016-01-30-94,0.0
+10,2016-01-30-94,0.0
+11,2016-01-30-94,0.0
+12,2016-01-30-94,0.0
+13,2016-01-30-94,0.0
+14,2016-01-30-94,0.0
+15,2016-01-30-94,0.0
+16,2016-01-30-94,0.0
+17,2016-01-30-94,0.0
+18,2016-01-30-94,0.0
+19,2016-01-30-94,0.0
+20,2016-01-30-94,0.0
+21,2016-01-30-94,0.0
+22,2016-01-30-94,0.0
+23,2016-01-30-94,0.0
+24,2016-01-30-94,0.0
+25,2016-01-30-94,0.0
+26,2016-01-30-94,0.0
+27,2016-01-30-94,0.0
+28,2016-01-30-94,0.0
+29,2016-01-30-94,0.0
+30,2016-01-30-94,0.0
+31,2016-01-30-94,0.0
+32,2016-01-30-94,0.0
+33,2016-01-30-94,0.0
+34,2016-01-30-94,0.0
+35,2016-01-30-94,0.0
+36,2016-01-30-94,0.0
+37,2016-01-30-94,0.0
+38,2016-01-30-94,0.0
+39,2016-01-30-94,0.0
+40,2016-01-30-94,0.0
+41,2016-01-30-94,0.0
+42,2016-01-30-94,0.0
+43,2016-01-30-94,0.0
+44,2016-01-30-94,0.0
+45,2016-01-30-94,0.0
+46,2016-01-30-94,0.0
+47,2016-01-30-94,0.0
+48,2016-01-30-94,0.0
+49,2016-01-30-94,0.0
+50,2016-01-30-94,0.0
+51,2016-01-30-94,0.0
+52,2016-01-30-94,0.0
+53,2016-01-30-94,0.0
+54,2016-01-30-94,0.0
+55,2016-01-30-94,0.0
+56,2016-01-30-94,0.0
+57,2016-01-30-94,0.0
+58,2016-01-30-94,0.0
+59,2016-01-30-94,0.0
+60,2016-01-30-94,0.0
+61,2016-01-30-94,0.0
+62,2016-01-30-94,0.0
+63,2016-01-30-94,0.0
+64,2016-01-30-94,0.0
+65,2016-01-30-94,0.0
+66,2016-01-30-94,0.0
+1,2016-01-30-106,0.0
+2,2016-01-30-106,0.0
+3,2016-01-30-106,0.0
+4,2016-01-30-106,0.0
+5,2016-01-30-106,0.0
+6,2016-01-30-106,0.0
+7,2016-01-30-106,0.0
+8,2016-01-30-106,0.0
+9,2016-01-30-106,0.0
+10,2016-01-30-106,0.0
+11,2016-01-30-106,0.0
+12,2016-01-30-106,0.0
+13,2016-01-30-106,0.0
+14,2016-01-30-106,0.0
+15,2016-01-30-106,0.0
+16,2016-01-30-106,0.0
+17,2016-01-30-106,0.0
+18,2016-01-30-106,0.0
+19,2016-01-30-106,0.0
+20,2016-01-30-106,0.0
+21,2016-01-30-106,0.0
+22,2016-01-30-106,0.0
+23,2016-01-30-106,0.0
+24,2016-01-30-106,0.0
+25,2016-01-30-106,0.0
+26,2016-01-30-106,0.0
+27,2016-01-30-106,0.0
+28,2016-01-30-106,0.0
+29,2016-01-30-106,0.0
+30,2016-01-30-106,0.0
+31,2016-01-30-106,0.0
+32,2016-01-30-106,0.0
+33,2016-01-30-106,0.0
+34,2016-01-30-106,0.0
+35,2016-01-30-106,0.0
+36,2016-01-30-106,0.0
+37,2016-01-30-106,0.0
+38,2016-01-30-106,0.0
+39,2016-01-30-106,0.0
+40,2016-01-30-106,0.0
+41,2016-01-30-106,0.0
+42,2016-01-30-106,0.0
+43,2016-01-30-106,0.0
+44,2016-01-30-106,0.0
+45,2016-01-30-106,0.0
+46,2016-01-30-106,0.0
+47,2016-01-30-106,0.0
+48,2016-01-30-106,0.0
+49,2016-01-30-106,0.0
+50,2016-01-30-106,0.0
+51,2016-01-30-106,0.0
+52,2016-01-30-106,0.0
+53,2016-01-30-106,0.0
+54,2016-01-30-106,0.0
+55,2016-01-30-106,0.0
+56,2016-01-30-106,0.0
+57,2016-01-30-106,0.0
+58,2016-01-30-106,0.0
+59,2016-01-30-106,0.0
+60,2016-01-30-106,0.0
+61,2016-01-30-106,0.0
+62,2016-01-30-106,0.0
+63,2016-01-30-106,0.0
+64,2016-01-30-106,0.0
+65,2016-01-30-106,0.0
+66,2016-01-30-106,0.0
+1,2016-01-30-118,0.0
+2,2016-01-30-118,0.0
+3,2016-01-30-118,0.0
+4,2016-01-30-118,0.0
+5,2016-01-30-118,0.0
+6,2016-01-30-118,0.0
+7,2016-01-30-118,0.0
+8,2016-01-30-118,0.0
+9,2016-01-30-118,0.0
+10,2016-01-30-118,0.0
+11,2016-01-30-118,0.0
+12,2016-01-30-118,0.0
+13,2016-01-30-118,0.0
+14,2016-01-30-118,0.0
+15,2016-01-30-118,0.0
+16,2016-01-30-118,0.0
+17,2016-01-30-118,0.0
+18,2016-01-30-118,0.0
+19,2016-01-30-118,0.0
+20,2016-01-30-118,0.0
+21,2016-01-30-118,0.0
+22,2016-01-30-118,0.0
+23,2016-01-30-118,0.0
+24,2016-01-30-118,0.0
+25,2016-01-30-118,0.0
+26,2016-01-30-118,0.0
+27,2016-01-30-118,0.0
+28,2016-01-30-118,0.0
+29,2016-01-30-118,0.0
+30,2016-01-30-118,0.0
+31,2016-01-30-118,0.0
+32,2016-01-30-118,0.0
+33,2016-01-30-118,0.0
+34,2016-01-30-118,0.0
+35,2016-01-30-118,0.0
+36,2016-01-30-118,0.0
+37,2016-01-30-118,0.0
+38,2016-01-30-118,0.0
+39,2016-01-30-118,0.0
+40,2016-01-30-118,0.0
+41,2016-01-30-118,0.0
+42,2016-01-30-118,0.0
+43,2016-01-30-118,0.0
+44,2016-01-30-118,0.0
+45,2016-01-30-118,0.0
+46,2016-01-30-118,0.0
+47,2016-01-30-118,0.0
+48,2016-01-30-118,0.0
+49,2016-01-30-118,0.0
+50,2016-01-30-118,0.0
+51,2016-01-30-118,0.0
+52,2016-01-30-118,0.0
+53,2016-01-30-118,0.0
+54,2016-01-30-118,0.0
+55,2016-01-30-118,0.0
+56,2016-01-30-118,0.0
+57,2016-01-30-118,0.0
+58,2016-01-30-118,0.0
+59,2016-01-30-118,0.0
+60,2016-01-30-118,0.0
+61,2016-01-30-118,0.0
+62,2016-01-30-118,0.0
+63,2016-01-30-118,0.0
+64,2016-01-30-118,0.0
+65,2016-01-30-118,0.0
+66,2016-01-30-118,0.0
+1,2016-01-30-130,0.0
+2,2016-01-30-130,0.0
+3,2016-01-30-130,0.0
+4,2016-01-30-130,0.0
+5,2016-01-30-130,0.0
+6,2016-01-30-130,0.0
+7,2016-01-30-130,0.0
+8,2016-01-30-130,0.0
+9,2016-01-30-130,0.0
+10,2016-01-30-130,0.0
+11,2016-01-30-130,0.0
+12,2016-01-30-130,0.0
+13,2016-01-30-130,0.0
+14,2016-01-30-130,0.0
+15,2016-01-30-130,0.0
+16,2016-01-30-130,0.0
+17,2016-01-30-130,0.0
+18,2016-01-30-130,0.0
+19,2016-01-30-130,0.0
+20,2016-01-30-130,0.0
+21,2016-01-30-130,0.0
+22,2016-01-30-130,0.0
+23,2016-01-30-130,0.0
+24,2016-01-30-130,0.0
+25,2016-01-30-130,0.0
+26,2016-01-30-130,0.0
+27,2016-01-30-130,0.0
+28,2016-01-30-130,0.0
+29,2016-01-30-130,0.0
+30,2016-01-30-130,0.0
+31,2016-01-30-130,0.0
+32,2016-01-30-130,0.0
+33,2016-01-30-130,0.0
+34,2016-01-30-130,0.0
+35,2016-01-30-130,0.0
+36,2016-01-30-130,0.0
+37,2016-01-30-130,0.0
+38,2016-01-30-130,0.0
+39,2016-01-30-130,0.0
+40,2016-01-30-130,0.0
+41,2016-01-30-130,0.0
+42,2016-01-30-130,0.0
+43,2016-01-30-130,0.0
+44,2016-01-30-130,0.0
+45,2016-01-30-130,0.0
+46,2016-01-30-130,0.0
+47,2016-01-30-130,0.0
+48,2016-01-30-130,0.0
+49,2016-01-30-130,0.0
+50,2016-01-30-130,0.0
+51,2016-01-30-130,0.0
+52,2016-01-30-130,0.0
+53,2016-01-30-130,0.0
+54,2016-01-30-130,0.0
+55,2016-01-30-130,0.0
+56,2016-01-30-130,0.0
+57,2016-01-30-130,0.0
+58,2016-01-30-130,0.0
+59,2016-01-30-130,0.0
+60,2016-01-30-130,0.0
+61,2016-01-30-130,0.0
+62,2016-01-30-130,0.0
+63,2016-01-30-130,0.0
+64,2016-01-30-130,0.0
+65,2016-01-30-130,0.0
+66,2016-01-30-130,0.0
+1,2016-01-30-142,0.0
+2,2016-01-30-142,0.0
+3,2016-01-30-142,0.0
+4,2016-01-30-142,0.0
+5,2016-01-30-142,0.0
+6,2016-01-30-142,0.0
+7,2016-01-30-142,0.0
+8,2016-01-30-142,0.0
+9,2016-01-30-142,0.0
+10,2016-01-30-142,0.0
+11,2016-01-30-142,0.0
+12,2016-01-30-142,0.0
+13,2016-01-30-142,0.0
+14,2016-01-30-142,0.0
+15,2016-01-30-142,0.0
+16,2016-01-30-142,0.0
+17,2016-01-30-142,0.0
+18,2016-01-30-142,0.0
+19,2016-01-30-142,0.0
+20,2016-01-30-142,0.0
+21,2016-01-30-142,0.0
+22,2016-01-30-142,0.0
+23,2016-01-30-142,0.0
+24,2016-01-30-142,0.0
+25,2016-01-30-142,0.0
+26,2016-01-30-142,0.0
+27,2016-01-30-142,0.0
+28,2016-01-30-142,0.0
+29,2016-01-30-142,0.0
+30,2016-01-30-142,0.0
+31,2016-01-30-142,0.0
+32,2016-01-30-142,0.0
+33,2016-01-30-142,0.0
+34,2016-01-30-142,0.0
+35,2016-01-30-142,0.0
+36,2016-01-30-142,0.0
+37,2016-01-30-142,0.0
+38,2016-01-30-142,0.0
+39,2016-01-30-142,0.0
+40,2016-01-30-142,0.0
+41,2016-01-30-142,0.0
+42,2016-01-30-142,0.0
+43,2016-01-30-142,0.0
+44,2016-01-30-142,0.0
+45,2016-01-30-142,0.0
+46,2016-01-30-142,0.0
+47,2016-01-30-142,0.0
+48,2016-01-30-142,0.0
+49,2016-01-30-142,0.0
+50,2016-01-30-142,0.0
+51,2016-01-30-142,0.0
+52,2016-01-30-142,0.0
+53,2016-01-30-142,0.0
+54,2016-01-30-142,0.0
+55,2016-01-30-142,0.0
+56,2016-01-30-142,0.0
+57,2016-01-30-142,0.0
+58,2016-01-30-142,0.0
+59,2016-01-30-142,0.0
+60,2016-01-30-142,0.0
+61,2016-01-30-142,0.0
+62,2016-01-30-142,0.0
+63,2016-01-30-142,0.0
+64,2016-01-30-142,0.0
+65,2016-01-30-142,0.0
+66,2016-01-30-142,0.0
+</pre></div></div></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div><div class="cell code_cell unselected rendered" tabindex="2"><div class="input"><div class="prompt input_prompt"></div><div class="inner_cell"><div class="ctb_hideshow"><div class="celltoolbar"></div></div><div class="input_area"><div class="CodeMirror cm-s-ipython"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6px; left: 40px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; min-width: 3px; margin-bottom: -17px; border-right-width: 13px; min-height: 33px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 21px;">&nbsp;</div></div><div class="CodeMirror-code"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -34px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line "><span style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; top: 33px;"></div><div class="CodeMirror-gutters" style="height: 46px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></div></div></div><div class="output_wrapper"><div class="out_prompt_overlay prompt" title="click to expand output; double click to hide output" style="display: none;"></div><div class="output" style="display: none;"></div><div class="btn btn-default output_collapsed" title="click to expand output" style="display: none;">. . .</div></div></div></div><div class="end_space"></div></div>
+              <div id="tooltip" class="ipython_tooltip" style="display:none"><div class="tooltipbuttons"><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#" role="button" class="ui-button"><span class="ui-icon ui-icon-close">Close</span></a><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#" class="ui-corner-all" role="button" id="expanbutton" title="Grow the tooltip vertically (press shift-tab twice)"><span class="ui-icon ui-icon-plus">Expand</span></a><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#" role="button" class="ui-button" title="show the current docstring in pager (press shift-tab 4 times)"><span class="ui-icon ui-icon-arrowstop-l-n">Open in Pager</span></a><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#" role="button" class="ui-button" title="Tooltip will linger for 10 seconds while you type" style="display: none;"><span class="ui-icon ui-icon-clock">Close</span></a></div><div class="pretooltiparrow"></div><div class="tooltiptext smalltooltip"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="sidebarArea">
+        <div id="sidebarToolbar">
+          <div class="btn-toolbar pull-left">
+            <div class="btn-group">
+              <button id="toggleSidebarButton" type="button" class="btn" title="Toggle the size of the sidebar">
+                <span class="fa fa-chevron-right fa-flip-horizontal"></span>
+              </button>
+            </div>
+            <div class="btn-group">
+              <button id="navigationButton" type="button" class="btn">Navigation</button>
+              <button id="helpButton" type="button" class="btn active">Help</button>
+            </div>
+          </div>
+        </div>
+        <div id="sidebarContent">
+          <div id="navigation" style="display: none"><div><b>Notebook Outline</b></div><br><div><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#" cellindex="1">Prepare Final Dataset</a></div><br><div><a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/Xiaojukeji%20Algorithm%20Competition/5.%20Process%20Final%20Test%20Data%20With%20Final%20Algorithm.ipynb#" cellindex="4">Run Prediction and Export CSV</a></div></div>
+          <div id="help">
+            <p><b>Help for Python APIs</b></p>
+            <p>
+              You can enter <code>class?</code> or <code>member?</code> within a code cell in the
+              notebook to get help on a Python API.
+            </p>
+            <br>
+            <p>
+              For example, try <code>str?</code> to get help information on the built-in Python
+              method to convert a value to its string representation.
+            </p>
+            <br>
+            <p>
+              Additional help topics and links are also available from the menu off the Help
+              icon on the top of the page.
+            </p>
+            <br>
+            <p><b>Docs and Samples</b></p>
+            <p>
+              The <a href="https://main-dot-datalab-dot-datalab-projects-1331.appspot.com/notebooks/datalab/Readme.ipynb" target"_blank"="">Cloud Datalab Guide</a> featuring
+              documentation and sample notebooks is also a great way to check out how you can use Cloud Datalab.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./5. Process Final Test Data With Final Algorithm_files/promise.min.js"></script>
+  <script src="./5. Process Final Test Data With Final Algorithm_files/socket.io.js"></script>
+  <script src="./5. Process Final Test Data With Final Algorithm_files/require.js"></script>
+  <script>
+    window.mathjax_url = '';
+    window.sys_info = {};
+    require.config({
+      baseUrl: '/static/',
+      paths: {
+        'auth/js/main': 'auth/js/main.min',
+        custom : '/custom',
+        nbextensions : '/nbextensions',
+        widgets : '/deprecatedwidgets',
+        kernelspecs : '/kernelspecs',
+        underscore : 'components/underscore/underscore-min',
+        backbone : 'components/backbone/backbone-min',
+        jquery: 'components/jquery/jquery.min',
+        bootstrap: 'components/bootstrap/js/bootstrap.min',
+        bootstraptour: 'components/bootstrap-tour/build/js/bootstrap-tour.min',
+        jqueryui: 'components/jquery-ui/ui/minified/jquery-ui.min',
+        moment: 'components/moment/moment',
+        codemirror: 'components/codemirror',
+        termjs: 'components/term.js/src/term',
+      },
+      shim: {
+        underscore: {
+          exports: '_'
+        },
+        backbone: {
+          deps: ["underscore", "jquery"],
+          exports: "Backbone"
+        },
+        bootstrap: {
+          deps: ["jquery"],
+          exports: "bootstrap"
+        },
+        bootstraptour: {
+          deps: ["bootstrap"],
+          exports: "Tour"
+        },
+        jqueryui: {
+          deps: ["jquery"],
+          exports: "$"
+        }
+      }
+    });
+    require.config({
+       map: {
+         '*': {
+           'contents': 'services/contents',
+         }
+       }
+     });
+     window.datalab = {};
+  </script>
+  <script src="./5. Process Final Test Data With Final Algorithm_files/main.min.js" charset="utf-8"></script>
+  <script src="./5. Process Final Test Data With Final Algorithm_files/api.js" async="true" defer="true"></script>
+  <script type="text/fragment" id="cellStatus">
+    <div class="status" style="display: none;">
+      Running...
+      <div class="progress progress-striped active">
+        <div class="progress-bar" style="width: 100%"></div>
+      </div>
+    </div>
+  </script>
+  <script type="text/fragment" id="shortcutsHelp">
+    <p>The notebook has two keyboard modes: Edit mode allows you to type code/text into a cell indicated by a raised cell with a shadow. Command mode allows notebook level actions.</p>
+    <br>
+    <p><b>Command Mode</b> (<code>Esc</code> to enable)</p>
+    <div>
+      <div><code>Enter</code>: edit mode</div>
+      <div><code>Ctrl/Cmd+S</code>: save notebook</div>
+      <div><code>Shift+Enter</code>: run cell, select next</div>
+      <div><code>Ctrl+Enter</code>: run cell</div>
+      <div><code>y</code>: to code</div>
+      <div><code>m</code>: to markdown</div>
+      <div><code>Up</code>: select previous cell</div>
+      <div><code>Down</code>: select next cell</div>
+      <div><code>Ctrl+K</code>: move cell up</div>
+      <div><code>Ctrl+J</code>: move cell down</div>
+      <div><code>a</code>: insert cell above</div>
+      <div><code>b</code>: insert cell below</div>
+      <div><code>x</code>: cut cell</div>
+      <div><code>c</code>: copy cell</div>
+      <div><code>v</code>: paste below</div>
+      <div><code>dd</code>: delete cell</div>
+      <div><code>z</code>: undo delete cell</div>
+    </div>
+    <br>
+    <p><b>Edit Mode</b> (<code>Enter</code> to enable)</p>
+    <div>
+      <div><code>Esc</code>: command mode</div>
+      <div><code>Ctrl/Cmd+S</code>: save notebook</div>
+      <div><code>Shift+Enter</code>: run cell, select next</div>
+      <div><code>Tab</code>: code completion or indent</div>
+      <div><code>Shift+Tab</code>: quick help</div>
+      <div><code>Ctrl/Cmd+]</code>: indent</div>
+      <div><code>Ctrl/Cmd+[</code>: dedent</div>
+      <div><code>Ctrl/Cmd+a</code>: select all</div>
+      <div><code>Ctrl/Cmd+z</code>: undo</div>
+      <div><code>Ctrl/Cmd+Shift+z</code>: redo</div>
+      <div><code>Ctrl/Cmd+x</code>: cut selected</div>
+      <div><code>Ctrl/Cmd+c</code>: copy selected</div>
+      <div><code>Ctrl/Cmd+v</code>: paste</div>
+    </div>
+  </script>
+  <script type="text/fragment" id="markdownHelp">
+  <b>Markdown Syntax</b><br /><br />
+      <b>Headers</b>
+<pre># This is a level 1 header.
+## This is a level 2 header.
+### This is a level 3 header.</pre>
+      <b>Emphasis</b>
+<pre>*Italic text*
+_Also italic_
+
+**Bold text</pre>
+      <b>Unordered Lists</b>
+<pre>* Item 1
+* Item 2
+  * Item 2a</pre>
+      <b>Ordered Lists</b>
+<pre>1. Item 1
+2. Item 2
+   * Item 2a</pre>
+      <b>Links</b>
+<pre>http://cloud.google.com - automatic
+[Text](url)</pre>
+      <b>Images</b>
+      <pre>![Alt Text](url)</pre>
+      <b>Quoted Text</b>
+<pre>&gt; Quoted Line 1
+&gt; Quoted Line 2</pre>
+      <b>Inline Code</b>
+      <pre>Some `code` inline</pre>
+      <b>Code Block</b>
+<pre>Normal text
+
+    Indented code text</pre>
+    </div>
+  </script>
+
+
+</body></html>
