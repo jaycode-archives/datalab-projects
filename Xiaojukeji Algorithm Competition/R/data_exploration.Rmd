@@ -5,9 +5,14 @@ date: "June 10, 2016"
 output: html_document
 ---
 
-```{r}
-devtools::install_github("hadley/assertthat")
-devtools::install_github("rstats-db/bigrquery")
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, cache=TRUE, cache.path = 'cache/', fig.path='figure/')
+```
+
+
+```{r libraries}
+# devtools::install_github("hadley/assertthat")
+# devtools::install_github("rstats-db/bigrquery")
 
 library(bigrquery)
 library(curl)
@@ -16,25 +21,27 @@ library(Cairo)
 library(ggplot2)
 ```
 
-```{r}
+```{r load_data}
 setwd("C:\\Dropbox\\Projects\\kaggle\\datalab-projects\\Xiaojukeji Algorithm Competition\\R")
 
-if (file.exists('data.Rda')) {
-  load("data.Rda")
+filename <- "xjk_algo_comp.gaps4.Rda"
+
+if (file.exists(filename)) {
+  load(filename)
 } else {
   project <- "datalab-projects-1331" # put your projectID here
  
-  sql <- 'SELECT * FROM[datalab-projects-1331:xjk_algo_comp.future_gaps_processed];'
+  sql <- 'SELECT * FROM[datalab-projects-1331:xjk_algo_comp.gaps];'
    
   data <- query_exec(sql, project=project, max_pages=Inf)
-  save(data,file="data.Rda")
+  save(data,file=filename)
 }
 data[is.na(data)] <- 0
 ```
 
 # Corrplot
-```{r}
-data1 <- data[ , !names(data) %in% c("timeslot", "date")]
+```{r corrplot}
+data1 <- data[ , !names(data) %in% c("timeslot", "district_id")]
 cors <- cor(data1)
 corrplot(cors, method="color", order="hclust", tl.cex = 0.8)
 ```
@@ -44,35 +51,42 @@ Clearer version is available at file `corrplot.png` (4000px width).
 From there we see that `gap` is only strongly correlated with `sum_price`.
 
 # Which days in week have different gaps?
-```{r}
+```{r days_in_week}
 ggplot(aes(y=gap, x=as.factor(day_in_week)), data=data) +
   geom_boxplot() +
   scale_y_log10()
 ```
 
-Looks like there is usually less gap on Sunday. Variable `is_sunday` may need to be created.
+Looks like there are usually less gaps on Sunday. Variable `is_sunday` may need to be created.
 
-```{r}
+```{r corr2}
 data$is_sunday <- ifelse(data$day_in_week == 0, TRUE, FALSE)
 cor1 <- cor(x=data$is_sunday, y=data$gap)
 cor2 <- cor(x=data$sum_price, y=data$gap)
-cor3 <- cor(x=data$f1, y=data$gap)
+cor3 <- cor(x=data$poi1, y=data$gap)
 print(paste("correlation between is_sunday and gap: ", cor1, sep=" "))
 print(paste("correlation between sum_price and gap: ", cor2, sep=" "))
-print(paste("correlation between f1 and gap: ", cor3, sep=" "))
+print(paste("correlation between poi1 and gap: ", cor3, sep=" "))
 ```
+
+As it turned out, the correlation between `is_sunday` and `gap` is rather low (around 0.02) so we can't really use it.
+
+# Get ordered correlation
+Useful for feature selection step.
 
 ```{r}
 cors <- cor(x=data$gap, y=data1)
 corsdf <- as.data.frame(as.table(cors))
-corsdf=corsdf[order(-abs(corsdf$Freq)),] 
+corsdf=corsdf[order(-abs(corsdf$Freq)),]
+x <- subset(corsdf, abs(Freq) > 0.3)$Var2
+print(paste(x, collapse=", "))
 ```
 
 # Traffic
 How do gaps differ on different traffic levels?
 
-```{r}
-ggplot(aes(y=gap, x=traffic_tj_level1), data=data) +
+```{r traffic1}
+ggplot(aes(y=gap, x=tj_level1_1_slots_ago), data=data) +
   geom_jitter(alpha=0.4) +
   geom_smooth()
 ```
@@ -81,9 +95,96 @@ After 3500 `traffic_tj_level1` some high gaps are starting to show, but their nu
 
 Let's see if log scaling `gap` variable will unravel more information.
 
-```{r}
-ggplot(aes(y=gap, x=traffic_tj_level1), data=data) +
+```{r traffic2}
+ggplot(aes(y=gap, x=tj_level1_1_slots_ago), data=data) +
   geom_jitter(alpha=0.4) +
   scale_y_log10() +
   geom_smooth()
 ```
+
+It doesn't look so, let's move on.
+
+# Previous slot's gap
+
+Maybe previous slot's gap affects next gap, since they are only separated by 10 minutes. Let's explore this.
+
+```{r prevgap}
+ggplot(aes(y=gap, x=gap_1_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+Bingo! `gap` and `previous_gap` are highly correlated it seems.
+
+
+# Weather
+
+Weather data have really low correlation with `gap`, but I wonder if there are some hidden structures we can find here.
+
+```{r weather1}
+ggplot(aes(y=gap, x=as.factor(weather_1_slots_ago)), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+It looks like weather 1 has several high gaps. Let's see the distributions more clearly by using box plot and log-scale the y-axis.
+
+```{r weather1a}
+ggplot(aes(y=gap, x=as.factor(weather_1_slots_ago)), data=data) +
+  geom_boxplot() +
+  geom_smooth() +
+  scale_y_log10()
+```
+
+There doesn't seem to be any prevalent trend here.
+
+```{r weather2}
+ggplot(aes(y=gap, x=pm25_1_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+```{r weather2a}
+ggplot(aes(y=gap, x=pm25_1_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth() +
+  scale_y_log10()
+```
+
+```{r weather3}
+ggplot(aes(y=gap, x=as.factor(temperature_1_slots_ago)), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+```{r weather3a}
+ggplot(aes(y=gap, x=as.factor(temperature_1_slots_ago)), data=data) +
+  geom_boxplot() +
+  geom_smooth() +
+  scale_y_log10()
+```
+
+It seems like there are three clusters of weather temperatures that correspond to different level of ``
+
+```{r weather4}
+ggplot(aes(y=weather_pm25, x=as.factor(temperature_1_slots_ago), color=gap), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+# Timeofday_slot with gap
+```{r timeofday_slot}
+ggplot(aes(y=gap, x=as.factor(timeofday_slot)), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+Looks like there are some hours where gaps are surging, let's try to plot it clearer
+
+```{r timeofday_slot}
+ggplot(aes(y=gap, x=as.factor(timeofday_slot)), data=data) +
+  geom_boxplot() +
+  scale_y_log10()
+```
+
+Surge happens at min 50 to 53.
