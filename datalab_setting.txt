@@ -1,0 +1,1 @@
+http://datalab.cloud.google.com?name=main&container=latest&cpu=1&memorygb=3.75&diskgb=50
