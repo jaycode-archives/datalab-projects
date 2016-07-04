@@ -2,6 +2,14 @@
 /Xiaojukeji\ Algorithm\ Competition/*.tar.gz
 /Xiaojukeji\ Algorithm\ Competition/season_1
 /Xiaojukeji\ Algorithm\ Competition/season_2
+<<<<<<< HEAD
+/Xiaojukeji\ Algorithm\ Competition/*.h5
+/Xiaojukeji\ Algorithm\ Competition/*.hdf
+/Xiaojukeji\ Algorithm\ Competition/R/*.Rda
+/Xiaojukeji\ Algorithm\ Competition/R/.Rdata
+/Xiaojukeji\ Algorithm\ Competition/R/cache
+=======
 /Xiaojukeji\ Algorithm\ Competition/xjk_pytable.h5
 /Xiaojukeji\ Algorithm\ Competition/*.h5
 /Xiaojukeji\ Algorithm\ Competition/*.pkl
+>>>>>>> origin/datalab_main
