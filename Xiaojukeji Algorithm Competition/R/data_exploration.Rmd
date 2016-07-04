@@ -11,6 +11,7 @@ knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, cache=TRUE, cach
 
 
 ```{r libraries}
+# install.packages(c('devtools', 'curl', 'corrplot', 'Cairo', 'tibble'))
 # devtools::install_github("hadley/assertthat")
 # devtools::install_github("rstats-db/bigrquery")
 
@@ -24,7 +25,7 @@ library(ggplot2)
 ```{r load_data}
 setwd("C:\\Dropbox\\Projects\\kaggle\\datalab-projects\\Xiaojukeji Algorithm Competition\\R")
 
-filename <- "xjk_algo_comp.gaps4.Rda"
+filename <- "xjk_algo_comp.gaps.Rda"
 
 if (file.exists(filename)) {
   load(filename)
@@ -42,8 +43,11 @@ data[is.na(data)] <- 0
 # Corrplot
 ```{r corrplot}
 data1 <- data[ , !names(data) %in% c("timeslot", "district_id")]
-cors <- cor(data1)
+cors <- cor(data1, use="complete")
 corrplot(cors, method="color", order="hclust", tl.cex = 0.8)
+```
+```{r corlist}
+corrplot(cors[1:163,164, drop=FALSE], method="color", tl.cex = 0.5, cl.pos='n')
 ```
 
 Clearer version is available at file `corrplot.png` (4000px width).
@@ -188,3 +192,45 @@ ggplot(aes(y=gap, x=as.factor(timeofday_slot)), data=data) +
 ```
 
 Surge happens at min 50 to 53.
+
+# Gap correlations
+
+```{r gap_cor_1}
+ggplot(aes(y=gap, x=gap_1_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  scale_y_log10()
+```
+
+```{r gap_cor_1}
+ggplot(aes(y=gap, x=gap_1_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+```{r gap_cor_2}
+ggplot(aes(y=gap, x=gap_2_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+```{r gap_cor_3}
+ggplot(aes(y=gap, x=gap_3_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+```{r gap_sum_cor_1}
+ggplot(aes(y=gap, x=sum_price_1_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+```{r gap_sum_cor_2}
+ggplot(aes(y=gap, x=sum_price_2_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
+
+```{r gap_sum_cor_3}
+ggplot(aes(y=gap, x=sum_price_3_slots_ago), data=data) +
+  geom_jitter(alpha=0.4) +
+  geom_smooth()
+```
